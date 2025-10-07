@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6bhl617xyy8o"]
+
+[ext_resource type="PackedScene" uid="uid://c2e8wbaqisfj3" path="res://scripts+scenes/chocolate/chocolate_bar.tscn" id="1_53q0u"]
+[ext_resource type="PackedScene" uid="uid://y6totfluuhlb" path="res://scripts+scenes/main/ui.tscn" id="1_pjrb6"]
+
+[sub_resource type="Environment" id="Environment_pjrb6"]
+background_mode = 1
+background_color = Color(0.929167, 0.559375, 0.772068, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="UI" parent="." instance=ExtResource("1_pjrb6")]
+
+[node name="ChocolateBar" parent="." instance=ExtResource("1_53q0u")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pjrb6")

@@ -1,0 +1,184 @@
+[gd_scene load_steps=5 format=3 uid="uid://y6totfluuhlb"]
+
+[ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="1_jjlmp"]
+[ext_resource type="Script" uid="uid://cwvel3m7yv3ie" path="res://scripts+scenes/main/ui.gd" id="1_obaa7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjlmp"]
+bg_color = Color(0.941472, 0.372373, 0.555458, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkh0s"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="UI" type="Control" groups=["ui"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_obaa7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Player1" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.109
+anchor_top = 0.066
+anchor_right = 0.243
+anchor_bottom = 0.151
+offset_left = 0.431992
+offset_top = 0.231998
+offset_right = 0.0639954
+offset_bottom = 0.151993
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 40
+text = "Player 1"
+
+[node name="Selection" type="Panel" parent="CanvasLayer/Player1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.227
+anchor_top = -0.145
+anchor_right = 1.026
+anchor_bottom = 0.945
+offset_left = -0.0419807
+offset_top = -0.0250015
+offset_right = -0.0039978
+offset_bottom = 0.025013
+theme_override_styles/panel = SubResource("StyleBoxFlat_jjlmp")
+
+[node name="Player2" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.762
+anchor_top = 0.082
+anchor_right = 0.896
+anchor_bottom = 0.167
+offset_left = 0.175964
+offset_top = -0.136002
+offset_right = -0.192017
+offset_bottom = -0.216003
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 40
+text = "Player 2"
+
+[node name="Selection" type="Panel" parent="CanvasLayer/Player2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.227
+anchor_top = -0.145
+anchor_right = 1.026
+anchor_bottom = 0.945
+offset_left = -0.0419807
+offset_top = -0.0250015
+offset_right = -0.0039978
+offset_bottom = 0.025013
+theme_override_styles/panel = SubResource("StyleBoxFlat_jjlmp")
+
+[node name="LostPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.319
+anchor_top = 0.264
+anchor_right = 0.724
+anchor_bottom = 0.731
+offset_left = 0.511993
+offset_top = -0.0720062
+offset_right = -0.0480347
+offset_bottom = 0.311981
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wkh0s")
+
+[node name="LostText" type="Label" parent="CanvasLayer/LostPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.275
+anchor_top = 0.297
+anchor_right = 0.738
+anchor_bottom = 0.72
+offset_left = 0.0499878
+offset_top = -0.184006
+offset_right = 0.27594
+offset_bottom = -1.84003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 50
+text = "asfdsf"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlaySettings" type="Panel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.319
+anchor_top = 0.264
+anchor_right = 0.724
+anchor_bottom = 0.731
+offset_left = 0.511993
+offset_top = -0.0720062
+offset_right = -0.0480347
+offset_bottom = 0.311981
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wkh0s")
+
+[node name="SettingsText" type="Label" parent="CanvasLayer/PlaySettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.097
+anchor_top = 0.056
+anchor_right = 0.929
+anchor_bottom = 0.271
+offset_left = 1.798
+offset_top = 0.0319996
+offset_right = 0.0859985
+offset_bottom = -0.113007
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 50
+text = "Single Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MultiPlayer" type="Button" parent="CanvasLayer/PlaySettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21
+anchor_top = 0.611
+anchor_right = 0.811
+anchor_bottom = 0.851
+offset_left = 0.139999
+offset_top = -0.132996
+offset_right = 0.0739746
+offset_bottom = 0.147003
+text = "Multi Player"
+
+[node name="SinglePlayer" type="Button" parent="CanvasLayer/PlaySettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.208
+anchor_top = 0.304
+anchor_right = 0.809
+anchor_bottom = 0.541
+offset_left = 0.0719986
+offset_top = -0.112007
+offset_right = 0.00598145
+offset_bottom = 0.0769958
+text = "Single Player"
+
+[connection signal="pressed" from="CanvasLayer/PlaySettings/MultiPlayer" to="." method="_on_multi_player_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlaySettings/SinglePlayer" to="." method="_on_single_player_pressed"]

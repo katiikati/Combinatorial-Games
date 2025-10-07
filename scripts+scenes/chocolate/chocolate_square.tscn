@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://d07t0op5o6dhc"]
+
+[ext_resource type="Script" uid="uid://dy267vya2cyx8" path="res://scripts+scenes/chocolate/chocolate_collider.gd" id="1_dsfjg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ylahu"]
+size = Vector3(1, 1, 0.5)
+subdivide_width = 2
+subdivide_height = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0e1xt"]
+albedo_color = Color(0.497924, 0.277848, 0.181213, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsfjg"]
+shading_mode = 0
+albedo_color = Color(1, 0.722203, 0.541279, 0.270588)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nuost"]
+material = SubResource("StandardMaterial3D_dsfjg")
+size = Vector3(1.1, 1.1, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nuost"]
+size = Vector3(1, 1, 0.521973)
+
+[node name="ChocolateSquare" type="StaticBody3D"]
+script = ExtResource("1_dsfjg")
+
+[node name="ChocolateMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ylahu")
+surface_material_override/0 = SubResource("StandardMaterial3D_0e1xt")
+
+[node name="Glow" type="MeshInstance3D" parent="ChocolateMesh"]
+visible = false
+mesh = SubResource("BoxMesh_nuost")
+
+[node name="ChocolateCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00610352)
+shape = SubResource("BoxShape3D_nuost")
