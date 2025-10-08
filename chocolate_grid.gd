@@ -14,6 +14,7 @@ var current_row:int
 var current_col: int
 
 var deleted_points = []
+var existing_points = []
 var just_added: Vector2
 
 func _ready():
@@ -27,7 +28,6 @@ func _ready():
 		for c in range(cols):
 			var piece = piece_scene.instantiate()
 			piece.position = Vector3(c * distance -x_offset, r * distance-y_offset, 0)
-			piece.connect("piece_clicked", Callable(self, "_on_piece_clicked"))
 			if c == 0 && r == 0:
 				var piece_mesh = piece.get_node("ChocolateMesh")
 				var mat = piece_mesh.get_active_material(0).duplicate()
@@ -35,6 +35,7 @@ func _ready():
 				piece_mesh.set_surface_override_material(0, mat)
 			piece.row = r
 			piece.col = c
+			existing_points.append(Vector2(r, c))
 			add_child(piece)
 	update_selection()
 			
@@ -75,20 +76,15 @@ func _unhandled_input(event: InputEvent):
 			
 		if event.is_action_pressed("enter"):
 			eat_chunk()
-			
-func _on_piece_clicked():
-	for child in get_children():
-		child.set_selected(false)
-		if child.row == current_row && child.col == current_col:
-			child.set_selected(true)
-			last_selected = child
 
 func update_selection():
 	for child in get_children():
 		child.set_selected(false)
-		if child.row == current_row && child.col == current_col:
-			child.set_selected(true)
+		var child_point = Vector2(child.row, child.col)
+		if child_point in existing_points:
 			last_selected = child
+			
+	last_selected.set_selected(true)
 			
 func eat_chunk():
 	
@@ -99,7 +95,9 @@ func eat_chunk():
 	var set_new_current = false
 	for child in get_children():
 		if child.row >= current_row && child.col >= current_col:
-			deleted_points.append(Vector2(child.row, child.col))
+			var bad_point = Vector2(child.row, child.col)
+			deleted_points.append(bad_point)
+			existing_points.erase(bad_point)
 			just_added=Vector2(child.row, child.col)
 			child.queue_free()
 	
@@ -119,7 +117,9 @@ func eat_given_chunk(chunk: Vector2):
 	just_added=Vector2(chunk.x, chunk.y)
 	for child in get_children():
 		if child.row >= chunk.x && child.col >= chunk.y:
-			deleted_points.append(Vector2(child.row, child.col))
+			var bad_point = Vector2(child.row, child.col)
+			deleted_points.append(bad_point)
+			existing_points.erase(bad_point)
 			child.queue_free()
 	current_col = chunk.x - 1
 	current_row = chunk.y - 1
