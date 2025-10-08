@@ -85,7 +85,6 @@ offset_bottom = 0.025013
 theme_override_styles/panel = SubResource("StyleBoxFlat_jjlmp")
 
 [node name="LostPanel" type="Panel" parent="CanvasLayer"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.319
 anchor_top = 0.264
@@ -100,7 +99,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wkh0s")
 
 [node name="LostText" type="Label" parent="CanvasLayer/LostPanel"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.275
@@ -116,7 +114,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 50
-text = "asfdsf"
+text = "You lost"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -179,6 +177,22 @@ offset_top = -0.112007
 offset_right = 0.00598145
 offset_bottom = 0.0769958
 text = "Single Player"
+
+[node name="Thinking" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.438
+anchor_top = 0.059
+anchor_right = 0.562
+anchor_bottom = 0.13
+offset_left = 0.423981
+offset_top = -0.232002
+offset_right = 0.575928
+offset_bottom = -0.240005
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 40
+text = "Thinking..."
+horizontal_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/PlaySettings/MultiPlayer" to="." method="_on_multi_player_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlaySettings/SinglePlayer" to="." method="_on_single_player_pressed"]

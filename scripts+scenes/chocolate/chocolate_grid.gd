@@ -20,6 +20,8 @@ var deleted_points = []
 var existing_points = []
 var just_added: Vector2
 
+var can_move = true
+
 func _ready():
 	current_row = rows-1
 	current_col = cols-1
@@ -46,7 +48,7 @@ func _ready():
 	update_selection()
 			
 func _unhandled_input(event: InputEvent):
-	if !start_game:
+	if !start_game && !can_move:
 		return
 	
 	#stuff when keys are pressed
@@ -81,14 +83,12 @@ func _unhandled_input(event: InputEvent):
 
 func update_selection():
 	#after WASD key pressed
-	print(existing_points)
 	if !Vector2(current_row, current_col) in existing_points:
 		print("nope")
 		if Vector2(prev_row, current_col) in existing_points:
 			current_row = prev_row
 		elif Vector2(current_row, prev_col) in existing_points:
 			current_col = prev_col
-	print("current", current_row, current_col)
 		
 	for child in get_children():
 		child.set_selected(false)
@@ -112,16 +112,16 @@ func get_next_select():
 func eat_chunk():
 	
 	if current_row == 0 && current_col == 0:
-		ui.lost()
+		ui.end_game(false)
 		return
 		
+	just_added=Vector2(current_row, current_col)
 	var set_new_current = false
 	for child in get_children():
 		if child.row >= current_row && child.col >= current_col:
 			var bad_point = Vector2(child.row, child.col)
 			deleted_points.append(bad_point)
 			existing_points.erase(bad_point)
-			just_added=Vector2(child.row, child.col)
 			child.queue_free()
 	
 	if !set_new_current:
@@ -138,6 +138,10 @@ func eat_chunk():
 	
 func eat_given_chunk(chunk: Vector2):
 	#eat a chunk given from best move in single play algorithm
+	if chunk.x == 0 && chunk.y == 0:
+		ui.end_game(true)
+		return
+		
 	just_added=Vector2(chunk.x, chunk.y)
 	for child in get_children():
 		if child.row >= chunk.x && child.col >= chunk.y:
