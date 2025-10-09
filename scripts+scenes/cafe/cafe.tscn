@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://q53txsdrk265"]
+
+[ext_resource type="PackedScene" uid="uid://cmeapwopmcf2j" path="res://scripts+scenes/cafe/furniture.tscn" id="1_tgabw"]
+[ext_resource type="PackedScene" uid="uid://uode2e4hyk0a" path="res://scripts+scenes/cafe/player.tscn" id="2_6l2x1"]
+[ext_resource type="Texture2D" uid="uid://cwg6bthiv00ow" path="res://icon.svg" id="3_23a56"]
+
+[node name="Cafe" type="Node2D"]
+
+[node name="Table" parent="." instance=ExtResource("1_tgabw")]
+position = Vector2(827, 271)
+
+[node name="Player" parent="." instance=ExtResource("2_6l2x1")]
+position = Vector2(162, 117)
+
+[node name="Floor" type="Sprite2D" parent="."]
+modulate = Color(0.00119745, 0.00119745, 0.00119745, 1)
+z_index = -100
+position = Vector2(106, 16)
+scale = Vector2(17.25, 13.7344)
+texture = ExtResource("3_23a56")

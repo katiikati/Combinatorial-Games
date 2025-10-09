@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://uode2e4hyk0a"]
+
+[ext_resource type="Texture2D" uid="uid://cwg6bthiv00ow" path="res://icon.svg" id="1_4jc5w"]
+[ext_resource type="Script" uid="uid://cxwpg2a0wep0b" path="res://scripts+scenes/cafe/player.gd" id="1_hb0v7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hb0v7"]
+radius = 78.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ntifa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4jc5w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_hb0v7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hb0v7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ntifa")

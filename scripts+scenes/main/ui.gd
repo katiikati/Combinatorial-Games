@@ -30,10 +30,12 @@ func next_play():
 func single_play():
 	set_current_player(1)
 	var will_eat = calc_best_play()
+	
 	print("will eat", will_eat)
 	thinking_label.visible = true
 	choco_grid.can_move = false
 	await get_tree().create_timer(2.0).timeout
+	
 	thinking_label.visible = false
 	choco_grid.can_move = true
 	set_current_player(2)

@@ -163,6 +163,8 @@ offset_left = 0.139999
 offset_top = -0.132996
 offset_right = 0.0739746
 offset_bottom = 0.147003
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 30
 text = "Multi Player"
 
 [node name="SinglePlayer" type="Button" parent="CanvasLayer/PlaySettings"]
@@ -176,6 +178,8 @@ offset_left = 0.0719986
 offset_top = -0.112007
 offset_right = 0.00598145
 offset_bottom = 0.0769958
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 30
 text = "Single Player"
 
 [node name="Thinking" type="Label" parent="CanvasLayer"]

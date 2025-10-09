@@ -48,7 +48,7 @@ func _ready():
 	update_selection()
 			
 func _unhandled_input(event: InputEvent):
-	if !start_game && !can_move:
+	if !start_game || !can_move:
 		return
 	
 	#stuff when keys are pressed
@@ -84,7 +84,6 @@ func _unhandled_input(event: InputEvent):
 func update_selection():
 	#after WASD key pressed
 	if !Vector2(current_row, current_col) in existing_points:
-		print("nope")
 		if Vector2(prev_row, current_col) in existing_points:
 			current_row = prev_row
 		elif Vector2(current_row, prev_col) in existing_points:
