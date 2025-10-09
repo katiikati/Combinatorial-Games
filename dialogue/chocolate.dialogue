@@ -14,4 +14,5 @@ Cocoa: Are you ready?
 - No
 	Cocoa: Ok I'll say it again => explain
 Cocoa: Great! Let's get started.
+do play_chocolate_game()
 => END
