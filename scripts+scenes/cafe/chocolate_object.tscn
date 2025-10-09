@@ -5,17 +5,20 @@
 [ext_resource type="Resource" uid="uid://c0sxik30rvaox" path="res://dialogue/chocolate.dialogue" id="3_y3nka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40j74"]
-size = Vector2(122, 124)
+size = Vector2(67, 28)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rxdu"]
-radius = 173.17
+radius = 96.0
 
 [node name="ChocolateObject" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -2)
 shape = SubResource("RectangleShape2D_40j74")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -0.5)
+scale = Vector2(0.484375, 0.210938)
 texture = ExtResource("1_s05qe")
 
 [node name="Actionable" type="Area2D" parent="." groups=["chocolate_object"]]
