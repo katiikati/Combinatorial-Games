@@ -4,12 +4,21 @@ extends CharacterBody2D
 const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 
+@onready var actionable_finder = $ActionableFinder
+
+var in_dialogue = false
 
 func _physics_process(delta: float) -> void:
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("ui_accept"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		for actionable in actionables:
+				if actionable.has_method("action"):
+					actionable.action()
+					
+	if in_dialogue:
+		velocity = Vector2.ZERO
+		return
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -27,3 +36,4 @@ func _physics_process(delta: float) -> void:
 		
 	velocity = velocity.normalized() * SPEED
 	move_and_slide()
+	

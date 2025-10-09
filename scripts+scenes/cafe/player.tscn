@@ -25,3 +25,13 @@ shape = SubResource("CircleShape2D_hb0v7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ntifa")
+
+[node name="ActionableFinder" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionableFinder"]
+shape = SubResource("CircleShape2D_hb0v7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="area_entered" from="ActionableFinder" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="ActionableFinder" to="." method="_on_area_2d_area_exited"]

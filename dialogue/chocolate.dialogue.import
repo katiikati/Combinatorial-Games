@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c0sxik30rvaox"
+path="res://.godot/imported/chocolate.dialogue-753ac393b18117964f8ed0219e316bc1.tres"
+
+[deps]
+
+source_file="res://dialogue/chocolate.dialogue"
+dest_files=["res://.godot/imported/chocolate.dialogue-753ac393b18117964f8ed0219e316bc1.tres"]
+
+[params]
+
+defaults=true

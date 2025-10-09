@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsv2cofw8dwri"]
+
+[ext_resource type="Texture2D" uid="uid://cwg6bthiv00ow" path="res://icon.svg" id="1_s05qe"]
+[ext_resource type="Script" uid="uid://3oq3c0slm3m" path="res://scripts+scenes/actionable.gd" id="2_7rxdu"]
+[ext_resource type="Resource" uid="uid://c0sxik30rvaox" path="res://dialogue/chocolate.dialogue" id="3_y3nka"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40j74"]
+size = Vector2(122, 124)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rxdu"]
+radius = 173.17
+
+[node name="ChocolateObject" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_40j74")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s05qe")
+
+[node name="Actionable" type="Area2D" parent="." groups=["chocolate_object"]]
+script = ExtResource("2_7rxdu")
+dialogue_resource = ExtResource("3_y3nka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+shape = SubResource("CircleShape2D_7rxdu")

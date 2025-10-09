@@ -1,0 +1,17 @@
+~ start
+Cocoa: [[Hi|Hello|Howdy]], I'm Cocoa. Whats up?
+- Nothing much
+	Cocoa: Alright, see you later. => END
+- Can I have some of that dubai chocolate?
+Cocoa: Sure, but only if you play a game with me!
+=> explain
+
+~ explain
+Cocoa: We will play on this piece of chocolate here. On each move you can choose a square of chocolate and "chomp" that squares and all squares above or to the right of it. 
+Cocoa: The goal is to not eat the bottom right square. The person who does that loses.
+Cocoa: Are you ready?
+- Yes!
+- No
+	Cocoa: Ok I'll say it again => explain
+Cocoa: Great! Let's get started.
+=> END
