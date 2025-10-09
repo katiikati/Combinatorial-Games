@@ -33,5 +33,5 @@ func _on_dialogue_ended(resource: DialogueResource) -> void:
 	player.in_dialogue = false
 	
 func play_chocolate_game() -> void:
-	print("yay")
+	get_tree().change_scene_to_file("res://scripts+scenes/main/main.tscn")
 	
