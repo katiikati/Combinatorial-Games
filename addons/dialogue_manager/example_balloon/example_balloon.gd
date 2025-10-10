@@ -5,7 +5,7 @@ class_name DialogueManagerExampleBalloon extends CanvasLayer
 @export var next_action: StringName = &"ui_accept"
 
 ## The action to use to skip typing the dialogue
-@export var skip_action: StringName = &"ui_cancel"
+@export var skip_action: StringName = &"ui_accept"
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -23,6 +23,8 @@ var will_hide_balloon: bool = false
 var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
+
+var can_get_response = false
 
 ## The current line
 var dialogue_line: DialogueLine:
@@ -62,6 +64,8 @@ func _ready() -> void:
 
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
+	
+	responses_menu.example_balloon = self
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -114,9 +118,13 @@ func apply_dialogue_line() -> void:
 		await dialogue_label.finished_typing
 
 	# Wait for input
-	if dialogue_line.responses.size() > 0:
+	if dialogue_line.responses.size() > 0 && dialogue_label.finished_typing:
+		print("show responses")
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
+		can_get_response = false
+		await get_tree().create_timer(1.00).timeout
+		can_get_response = true
 	elif dialogue_line.time != "":
 		var time = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
 		await get_tree().create_timer(time).timeout
@@ -150,6 +158,7 @@ func _on_mutated(_mutation: Dictionary) -> void:
 func _on_balloon_gui_input(event: InputEvent) -> void:
 	# See if we need to skip typing of the dialogue
 	if dialogue_label.is_typing:
+		print("is typing")
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
 		var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
 		if mouse_was_clicked or skip_button_was_pressed:
@@ -159,9 +168,11 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 	if not is_waiting_for_input: return
 	if dialogue_line.responses.size() > 0: return
+	if !dialogue_label.finished_typing:  return
 
 	# When there are no response options the balloon itself is the clickable thing
 	get_viewport().set_input_as_handled()
+	
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		next(dialogue_line.next_id)

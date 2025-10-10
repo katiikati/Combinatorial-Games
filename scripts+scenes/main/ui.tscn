@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://y6totfluuhlb"]
+[gd_scene load_steps=6 format=3 uid="uid://y6totfluuhlb"]
 
 [ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="1_jjlmp"]
 [ext_resource type="Script" uid="uid://cwvel3m7yv3ie" path="res://scripts+scenes/main/ui.gd" id="1_obaa7"]
@@ -16,6 +16,13 @@ corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obaa7"]
+bg_color = Color(0.934388, 0.695465, 0.844065, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="UI" type="Control" groups=["ui"]]
 layout_mode = 3
@@ -105,10 +112,10 @@ anchor_left = 0.275
 anchor_top = 0.297
 anchor_right = 0.738
 anchor_bottom = 0.72
-offset_left = 0.0499878
-offset_top = -0.184006
-offset_right = 0.27594
-offset_bottom = -1.84003
+offset_left = -0.150024
+offset_top = -35.991
+offset_right = 0.0759277
+offset_bottom = -37.647
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -117,6 +124,21 @@ theme_override_font_sizes/font_size = 50
 text = "You lost"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Exit" type="Button" parent="CanvasLayer/LostPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21
+anchor_top = 0.611
+anchor_right = 0.811
+anchor_bottom = 0.851
+offset_left = 0.139999
+offset_top = -0.132996
+offset_right = 0.0739746
+offset_bottom = 0.147003
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 30
+text = "Exit"
 
 [node name="PlaySettings" type="Panel" parent="CanvasLayer"]
 anchors_preset = -1
@@ -198,5 +220,34 @@ theme_override_font_sizes/font_size = 40
 text = "Thinking..."
 horizontal_alignment = 1
 
+[node name="You" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.762
+anchor_top = 0.082
+anchor_right = 0.896
+anchor_bottom = 0.167
+offset_left = 3.17596
+offset_top = 78.864
+offset_right = 2.80798
+offset_bottom = 78.784
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 40
+text = "You"
+
+[node name="Selection" type="Panel" parent="CanvasLayer/You"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.227
+anchor_top = -0.145
+anchor_right = 1.026
+anchor_bottom = 0.945
+offset_left = -0.0419807
+offset_top = 0.974998
+offset_right = -0.0039978
+offset_bottom = 1.02501
+theme_override_styles/panel = SubResource("StyleBoxFlat_obaa7")
+
+[connection signal="pressed" from="CanvasLayer/LostPanel/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlaySettings/MultiPlayer" to="." method="_on_multi_player_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlaySettings/SinglePlayer" to="." method="_on_single_player_pressed"]

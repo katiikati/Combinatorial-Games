@@ -15,6 +15,7 @@ var player_num = 1
 @onready var settings_panel = $CanvasLayer/PlaySettings
 @onready var single_player = $CanvasLayer/PlaySettings/SinglePlayer
 @onready var multi_player = $CanvasLayer/PlaySettings/MultiPlayer
+@onready var you_label = $CanvasLayer/You
 
 func _ready() -> void:
 	thinking_label.visible = false
@@ -29,6 +30,7 @@ func next_play():
 
 func single_play():
 	set_current_player(1)
+	you_label.show()
 	var will_eat = calc_best_play()
 	
 	print("will eat", will_eat)
@@ -44,6 +46,7 @@ func single_play():
 
 func multi_play():
 	print("current play", current_player)
+	you_label.hide()
 	if current_player == 1:
 		set_current_player(2)
 		current_player = 2
@@ -94,3 +97,7 @@ func set_current_player(player: int):
 	elif player == 2:
 		player_1_select.visible = false
 		player_2_select.visible = true
+
+
+func _on_exit_pressed() -> void:
+		SceneManager.show_scene("res://scripts+scenes/cafe/cafe.tscn")

@@ -20,7 +20,7 @@ signal finished_typing()
 
 
 # The action to press to skip typing.
-@export var skip_action: StringName = &"ui_cancel"
+@export var skip_action: StringName = "ui_accept"
 
 ## The speed with which the text types out.
 @export var seconds_per_step: float = 0.02
@@ -118,6 +118,7 @@ func type_out() -> void:
 
 ## Stop typing out the text and jump right to the end
 func skip_typing() -> void:
+	print("skip")
 	_mutate_remaining_mutations()
 	visible_characters = get_total_character_count()
 	self.is_typing = false

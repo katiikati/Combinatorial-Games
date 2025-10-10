@@ -17,6 +17,8 @@ signal response_selected(response)
 ## Hide any responses where [code]is_allowed[/code] is false
 @export var hide_failed_responses: bool = false
 
+var example_balloon
+
 ## The list of dialogue responses.
 var responses: Array = []:
 	get:
@@ -136,6 +138,9 @@ func _on_response_mouse_entered(item: Control) -> void:
 func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:
 	if "Disallowed" in item.name: return
 
+	if !example_balloon.dialogue_label.finished_typing: return
+
+	print("select response")
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		get_viewport().set_input_as_handled()
 		response_selected.emit(response)

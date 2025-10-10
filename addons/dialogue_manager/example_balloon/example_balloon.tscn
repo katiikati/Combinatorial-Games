@@ -124,6 +124,7 @@ theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_kmygl")
 theme_override_font_sizes/normal_font_size = 30
 text = "Dialogue..."
+skip_action = &"ui_cancel"
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
