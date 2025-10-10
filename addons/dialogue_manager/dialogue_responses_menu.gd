@@ -138,7 +138,7 @@ func _on_response_mouse_entered(item: Control) -> void:
 func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:
 	if "Disallowed" in item.name: return
 
-	if !example_balloon.dialogue_label.finished_typing: return
+	if !example_balloon.can_get_response: return
 
 	print("select response")
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
