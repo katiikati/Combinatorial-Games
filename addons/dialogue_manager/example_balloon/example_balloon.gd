@@ -123,7 +123,7 @@ func apply_dialogue_line() -> void:
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
 		can_get_response = false
-		await get_tree().create_timer(1.00).timeout
+		await get_tree().create_timer(0.30).timeout
 		can_get_response = true
 	elif dialogue_line.time != "":
 		var time = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
