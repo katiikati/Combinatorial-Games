@@ -143,6 +143,10 @@ offset_right = 0.0739746
 offset_bottom = 0.147003
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("4_al0vb")
+theme_override_styles/pressed_mirrored = ExtResource("5_4q4ln")
+theme_override_styles/pressed = ExtResource("4_al0vb")
+theme_override_styles/normal = ExtResource("4_al0vb")
 text = "Exit"
 
 [node name="PlaySettings" type="Panel" parent="CanvasLayer"]
@@ -202,6 +206,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("4_al0vb")
+theme_override_styles/pressed = ExtResource("4_al0vb")
 theme_override_styles/normal = ExtResource("4_al0vb")
 text = "Single Player"
 
@@ -211,6 +217,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/pressed = ExtResource("4_al0vb")
 theme_override_styles/normal = ExtResource("5_4q4ln")
 text = "Multi Player"
 
@@ -263,6 +270,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_obaa7")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_wkh0s")
 
 [connection signal="pressed" from="CanvasLayer/LostPanel/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlaySettings/VBox/SinglePlayer" to="." method="_on_single_player_pressed"]

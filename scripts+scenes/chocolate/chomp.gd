@@ -6,6 +6,7 @@ var board := [] #array of where chocolate squares are
 var losing_pos := Vector2()
 
 func init_board(r: int, c: int) -> void:
+	print("init board")
 	rows = r
 	cols = c
 	board = []
@@ -94,12 +95,12 @@ func _minimax(player_turn: bool) -> int:
 		var val := _minimax(not player_turn)
 		restore_board(saved)
 		if val == -1:
-			memo[key] = +1
-			return +1
-
+			memo[key] = -1
+			return -1
 	memo[key] = -1
 	return -1
 
+# get the best move for single-player opponent
 func choose_best_move_minimax() -> Variant:
 	var moves := valid_moves()
 	if moves.size() == 0:
@@ -119,6 +120,7 @@ func choose_best_move_minimax() -> Variant:
 	return moves[randi() % moves.size()]
 
 func random_ai() -> Variant:
+	print("random ai")
 	var moves := valid_moves()
 	if moves.size() == 0:
 		return null

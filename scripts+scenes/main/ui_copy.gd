@@ -60,8 +60,20 @@ func next_play():
 func single_play():
 	player_num = 1
 	start_game()
-	chomp_logic.reset()
-	chomp_logic.ai_play()
+	chomp_logic.init_board(4,4)
+	var will_eat = chomp_logic.choose_best_move_minimax()
+	
+	print("will eat", will_eat)
+	thinking_label.visible = true
+	choco_grid.can_move = false
+	await get_tree().create_timer(2.0).timeout
+	
+	thinking_label.visible = false
+	choco_grid.can_move = true
+	set_current_player(2)
+	choco_grid.eat_given_chunk(will_eat)
+	chomp_logic.apply_move(will_eat.x, will_eat.y)
+	print("single play")
 
 func multi_play():
 	print("current play", current_player)
@@ -77,17 +89,6 @@ func start_game():
 	settings_panel.visible = false
 	choco_grid.start_game = true
 	return
-
-func calc_best_play() -> Vector2:
-	var deleted_points = choco_grid.deleted_points
-	var added_point = choco_grid.just_added
-	print("just added", added_point)
-	var min_x = choco_grid.rows -1
-	var min_y = choco_grid.cols -1
-	if deleted_points.size() == 0:
-		return Vector2(1.0, 1.0)
-	else:
-		return Vector2(added_point.y, added_point.x)
 		
 func end_game(you_won: bool):
 	if player_num == 1:
@@ -107,7 +108,6 @@ func set_current_player(player: int):
 	elif player == 2:
 		player_1_select.visible = false
 		player_2_select.visible = true
-
 
 func _on_exit_pressed() -> void:
 		SceneManager.show_scene("res://scripts+scenes/cafe/cafe.tscn")
