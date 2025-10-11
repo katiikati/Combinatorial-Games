@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="3_kmygl"]
-[ext_resource type="StyleBox" uid="uid://gnppqvl5tdqg" path="res://themes/pink_round.tres" id="6_kmygl"]
+[ext_resource type="StyleBox" uid="uid://icut6ayt2ol0" path="res://themes/dark_pink_round.tres" id="6_kmygl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)

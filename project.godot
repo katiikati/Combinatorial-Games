@@ -29,6 +29,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 ui=""
 choco-grid=""
 chocolate_object=""
+player=""
 
 [input]
 

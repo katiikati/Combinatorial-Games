@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://y6totfluuhlb"]
+[gd_scene load_steps=9 format=3 uid="uid://y6totfluuhlb"]
 
 [ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="1_jjlmp"]
-[ext_resource type="Script" uid="uid://cwvel3m7yv3ie" path="res://scripts+scenes/main/ui.gd" id="1_obaa7"]
+[ext_resource type="Script" uid="uid://dcensb2h5m6dy" path="res://scripts+scenes/main/ui_copy.gd" id="1_onein"]
+[ext_resource type="Script" uid="uid://bgw85v3cg2drk" path="res://scripts+scenes/chocolate/chomp.gd" id="2_wkh0s"]
+[ext_resource type="StyleBox" uid="uid://icut6ayt2ol0" path="res://themes/dark_pink_round.tres" id="4_al0vb"]
+[ext_resource type="StyleBox" uid="uid://gnppqvl5tdqg" path="res://themes/pink_round.tres" id="5_4q4ln"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjlmp"]
 bg_color = Color(0.941472, 0.372373, 0.555458, 1)
@@ -31,9 +34,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_obaa7")
+script = ExtResource("1_onein")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_wkh0s")
 
 [node name="Player1" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
@@ -92,6 +96,7 @@ offset_bottom = 0.025013
 theme_override_styles/panel = SubResource("StyleBoxFlat_jjlmp")
 
 [node name="LostPanel" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.319
 anchor_top = 0.264
@@ -170,39 +175,44 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 50
-text = "Single Player"
+text = "Choose Game Style"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MultiPlayer" type="Button" parent="CanvasLayer/PlaySettings"]
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/PlaySettings"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.21
-anchor_top = 0.611
-anchor_right = 0.811
-anchor_bottom = 0.851
-offset_left = 0.139999
-offset_top = -0.132996
-offset_right = 0.0739746
-offset_bottom = 0.147003
-theme_override_fonts/font = ExtResource("1_jjlmp")
-theme_override_font_sizes/font_size = 30
-text = "Multi Player"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -89.5
+offset_right = 161.0
+offset_bottom = 134.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="SinglePlayer" type="Button" parent="CanvasLayer/PlaySettings"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.208
-anchor_top = 0.304
-anchor_right = 0.809
-anchor_bottom = 0.541
-offset_left = 0.0719986
-offset_top = -0.112007
-offset_right = 0.00598145
-offset_bottom = 0.0769958
+[node name="SinglePlayer" type="Button" parent="CanvasLayer/PlaySettings/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_al0vb")
 text = "Single Player"
+
+[node name="MultiPlayer" type="Button" parent="CanvasLayer/PlaySettings/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("5_4q4ln")
+text = "Multi Player"
 
 [node name="Thinking" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
@@ -221,6 +231,7 @@ text = "Thinking..."
 horizontal_alignment = 1
 
 [node name="You" type="Label" parent="CanvasLayer"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.762
 anchor_top = 0.082
@@ -248,6 +259,11 @@ offset_right = -0.0039978
 offset_bottom = 1.02501
 theme_override_styles/panel = SubResource("StyleBoxFlat_obaa7")
 
+[node name="ChompLogic" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="CanvasLayer/LostPanel/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="CanvasLayer/PlaySettings/MultiPlayer" to="." method="_on_multi_player_pressed"]
-[connection signal="pressed" from="CanvasLayer/PlaySettings/SinglePlayer" to="." method="_on_single_player_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlaySettings/VBox/SinglePlayer" to="." method="_on_single_player_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlaySettings/VBox/MultiPlayer" to="." method="_on_multi_player_pressed"]

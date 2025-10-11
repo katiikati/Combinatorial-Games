@@ -9,23 +9,47 @@ var player_num = 1
 @onready var player_1_select = $CanvasLayer/Player1/Selection
 @onready var player_2_select = $CanvasLayer/Player2/Selection
 
+var current_player_select = 1
+
 @onready var lost_panel = $CanvasLayer/LostPanel
 @onready var lost_panel_text = $CanvasLayer/LostPanel/LostText
 @onready var thinking_label = $CanvasLayer/Thinking
 
 @onready var settings_panel = $CanvasLayer/PlaySettings
-@onready var single_player = $CanvasLayer/PlaySettings/SinglePlayer
-@onready var multi_player = $CanvasLayer/PlaySettings/MultiPlayer
+@onready var single_player = $CanvasLayer/PlaySettings/VBox/SinglePlayer
+@onready var multi_player = $CanvasLayer/PlaySettings/VBox/MultiPlayer
 @onready var you_label = $CanvasLayer/You
+
+var pink_box: StyleBox = load("res://themes/pink_round.tres")
+var dark_pink_box: StyleBox = load("res://themes/dark_pink_round.tres")
 
 func _ready() -> void:
 	thinking_label.visible = false
 	lost_panel.visible = false
 	player_2_select.visible = false
 	
-	chomp_logic.connect("game_over", Callable(self, "_on_game_over"))
-	chomp_logic.connect("turn_changed", Callable(self, "_on_turn_changed"))
-	chomp_logic.connect("ai_move", Callable(self, "_on_ai_move"))
+func _process(delta: float) -> void:
+	if settings_panel.visible:
+		if Input.is_action_just_pressed("up") || Input.is_action_just_pressed("down"):
+			print(single_player.get_class())
+			if current_player_select == 1:
+				print("switch to 2")
+				current_player_select = 2
+				single_player.add_theme_stylebox_override("normal", pink_box)
+				multi_player.add_theme_stylebox_override("normal", dark_pink_box)
+			elif current_player_select == 2:
+				print("switch to 1")
+				current_player_select = 1
+				single_player.add_theme_stylebox_override("normal", dark_pink_box)
+				multi_player.add_theme_stylebox_override("normal", pink_box)
+				
+		if Input.is_action_just_pressed("ui_accept"):
+			player_num = current_player_select
+			if player_num ==1:
+				single_play()
+			else:
+				multi_play()
+			start_game()
 	
 func next_play():
 	if player_num ==1:
@@ -34,20 +58,10 @@ func next_play():
 		multi_play()
 
 func single_play():
-	set_current_player(1)
-	you_label.show()
-	var will_eat = calc_best_play()
-	
-	print("will eat", will_eat)
-	thinking_label.visible = true
-	choco_grid.can_move = false
-	await get_tree().create_timer(2.0).timeout
-	
-	thinking_label.visible = false
-	choco_grid.can_move = true
-	set_current_player(2)
-	choco_grid.eat_given_chunk(will_eat)
-	print("single play")
+	player_num = 1
+	start_game()
+	chomp_logic.reset()
+	chomp_logic.ai_play()
 
 func multi_play():
 	print("current play", current_player)
@@ -58,15 +72,6 @@ func multi_play():
 	else:
 		set_current_player(1)
 		current_player = 1
-	
-func _on_multi_player_pressed() -> void:
-	player_num = 2
-	start_game()
-
-func _on_single_player_pressed() -> void:
-	player_num = 1
-	start_game()
-	single_play()
 	
 func start_game():
 	settings_panel.visible = false

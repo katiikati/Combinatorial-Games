@@ -1,23 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://uode2e4hyk0a"]
 
-[ext_resource type="Texture2D" uid="uid://cwg6bthiv00ow" path="res://icon.svg" id="1_4jc5w"]
 [ext_resource type="Script" uid="uid://cxwpg2a0wep0b" path="res://scripts+scenes/cafe/player.gd" id="1_hb0v7"]
+[ext_resource type="Texture2D" uid="uid://b7lpaeg5cik7j" path="res://images/brownlabubu.webp" id="2_hb0v7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hb0v7"]
-radius = 37.0
+radius = 54.037
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ntifa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4jc5w")
+"texture": ExtResource("2_hb0v7")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_hb0v7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -25,7 +25,7 @@ shape = SubResource("CircleShape2D_hb0v7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.5, 1.5)
-scale = Vector2(0.335938, 0.382812)
+scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_ntifa")
 
 [node name="ActionableFinder" type="Area2D" parent="."]

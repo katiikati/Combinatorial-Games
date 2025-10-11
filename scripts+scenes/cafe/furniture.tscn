@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmeapwopmcf2j"]
 
-[ext_resource type="Texture2D" uid="uid://cwg6bthiv00ow" path="res://icon.svg" id="1_6ep3m"]
+[ext_resource type="Texture2D" uid="uid://cfmxcqess5bo1" path="res://images/matcha.jpg" id="1_6ep3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuw7n"]
-size = Vector2(151, 79)
+size = Vector2(111, 86.5)
 
 [node name="Furniture" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.999997, 0.999998)
-scale = Vector2(1.1875, 0.625)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_6ep3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1.5)
+position = Vector2(1, 0.75)
 shape = SubResource("RectangleShape2D_yuw7n")
