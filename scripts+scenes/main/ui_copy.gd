@@ -46,6 +46,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept"):
 			player_num = current_player_select
 			if player_num ==1:
+				chomp_logic.init_board(4,4)
 				single_play()
 			else:
 				multi_play()
@@ -60,7 +61,6 @@ func next_play():
 func single_play():
 	player_num = 1
 	start_game()
-	chomp_logic.init_board(4,4)
 	var will_eat = chomp_logic.choose_best_move_minimax()
 	
 	print("will eat", will_eat)

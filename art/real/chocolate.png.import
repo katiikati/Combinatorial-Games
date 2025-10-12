@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkqv5mmp0ataj"
-path="res://.godot/imported/icon.jpg-64f68b30ea939aa8019167e67dffb2db.ctex"
+uid="uid://bsybnk2xb46o5"
+path="res://.godot/imported/chocolate.png-14f0b292132a6c40a7e01d1485a3bfaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon.jpg"
-dest_files=["res://.godot/imported/icon.jpg-64f68b30ea939aa8019167e67dffb2db.ctex"]
+source_file="res://art/real/chocolate.png"
+dest_files=["res://.godot/imported/chocolate.png-14f0b292132a6c40a7e01d1485a3bfaa.ctex"]
 
 [params]
 

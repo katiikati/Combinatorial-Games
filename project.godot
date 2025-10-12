@@ -30,6 +30,7 @@ ui=""
 choco-grid=""
 chocolate_object=""
 player=""
+chomp_logic=""
 
 [input]
 

@@ -34,7 +34,7 @@ func apply_move(r: int, c: int) -> bool:
 	
 	for rr in range(rows):
 		for cc in range(cols):
-			if board[rr][cc] and (rr <=r or cc>= c):
+			if board[rr][cc] and (rr >=r and cc>= c):
 				board[rr][cc] = false
 				
 	return not board[losing_pos.x][losing_pos.y]
@@ -115,9 +115,15 @@ func choose_best_move_minimax() -> Variant:
 		var val := _minimax(false)
 		restore_board(saved)
 		if val == -1:
+			print("applying", mv.x, mv.y)
+			apply_move(mv.x, mv.y)
 			return mv
 	restore_board(saved_global)
-	return moves[randi() % moves.size()]
+	print("moves", moves)
+	var mv = moves[randi() % moves.size()]
+	print("applying", mv.x, mv.y)
+	apply_move(mv.x, mv.y)
+	return mv
 
 func random_ai() -> Variant:
 	print("random ai")

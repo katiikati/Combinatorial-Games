@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de6q7x7q7184o"
-path="res://.godot/imported/cabinets_LRK.png-705ac3cac159be3a1ec244c9b18571af.ctex"
+uid="uid://b473abaub00xo"
+path="res://.godot/imported/labubu.webp-cc27848dfce0f461b90d34f8e22dca0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/free_assets/cabinets_LRK.png"
-dest_files=["res://.godot/imported/cabinets_LRK.png-705ac3cac159be3a1ec244c9b18571af.ctex"]
+source_file="res://art/labubu.webp"
+dest_files=["res://.godot/imported/labubu.webp-cc27848dfce0f461b90d34f8e22dca0e.ctex"]
 
 [params]
 

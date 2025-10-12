@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7lpaeg5cik7j"
-path="res://.godot/imported/brownlabubu.webp-3fd9f3f89c14957f03f0c6857a229900.ctex"
+uid="uid://bkqv5mmp0ataj"
+path="res://.godot/imported/icon.jpg-dbd1377d7cbdbc72a8672f4d62d38f35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/brownlabubu.webp"
-dest_files=["res://.godot/imported/brownlabubu.webp-3fd9f3f89c14957f03f0c6857a229900.ctex"]
+source_file="res://art/icon.jpg"
+dest_files=["res://.godot/imported/icon.jpg-dbd1377d7cbdbc72a8672f4d62d38f35.ctex"]
 
 [params]
 

@@ -1,16 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsv2cofw8dwri"]
+[gd_scene load_steps=9 format=3 uid="uid://bsv2cofw8dwri"]
 
-[ext_resource type="Texture2D" uid="uid://cggihpwy31ckf" path="res://images/dubaichoco.png" id="1_7rxdu"]
 [ext_resource type="Script" uid="uid://doced07f5pwnb" path="res://scripts+scenes/cafe/chocolate_object.gd" id="1_whw5g"]
 [ext_resource type="Script" uid="uid://3oq3c0slm3m" path="res://scripts+scenes/actionable.gd" id="2_7rxdu"]
+[ext_resource type="Texture2D" uid="uid://bsybnk2xb46o5" path="res://art/real/chocolate.png" id="2_y3nka"]
 [ext_resource type="Resource" uid="uid://c0sxik30rvaox" path="res://dialogue/chocolate.dialogue" id="3_y3nka"]
-[ext_resource type="Texture2D" uid="uid://b473abaub00xo" path="res://images/labubu.webp" id="5_byvwf"]
+[ext_resource type="Texture2D" uid="uid://blkftho2uto0" path="res://art/heart2.png" id="5_whw5g"]
+[ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="6_byvwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40j74"]
 size = Vector2(67, 28)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rxdu"]
-radius = 96.0
+radius = 240.41
 
 [node name="ChocolateObject" type="StaticBody2D"]
 script = ExtResource("1_whw5g")
@@ -20,9 +21,8 @@ position = Vector2(-1.5, -2)
 shape = SubResource("RectangleShape2D_40j74")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, -0.5)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_7rxdu")
+position = Vector2(9, 0)
+texture = ExtResource("2_y3nka")
 
 [node name="Actionable" type="Area2D" parent="." groups=["chocolate_object"]]
 script = ExtResource("2_7rxdu")
@@ -32,9 +32,19 @@ dialogue_resource = ExtResource("3_y3nka")
 shape = SubResource("CircleShape2D_7rxdu")
 
 [node name="InteractIcon" type="Sprite2D" parent="."]
+modulate = Color(10.109, 1, 1, 1)
 position = Vector2(2, -116)
-scale = Vector2(0.3025, 0.4125)
-texture = ExtResource("5_byvwf")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_whw5g")
+
+[node name="Label" type="Label" parent="InteractIcon"]
+offset_left = -213.333
+offset_top = -323.333
+offset_right = 241.667
+offset_bottom = -98.3333
+theme_override_fonts/font = ExtResource("6_byvwf")
+theme_override_font_sizes/font_size = 200
+text = "Space"
 
 [connection signal="body_entered" from="Actionable" to="." method="_on_actionable_body_entered"]
 [connection signal="body_exited" from="Actionable" to="." method="_on_actionable_body_exited"]

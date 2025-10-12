@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1di1dohdsstm"
-path="res://.godot/imported/kitchen_LRK.png-f29c138567018da28c2920120718a5d7.ctex"
+uid="uid://d0tfiuxehm4jn"
+path="res://.godot/imported/Untitled_Artwork 9 copy.png-98e785512c6aacc3174acadda1949291.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/free_assets/kitchen_LRK.png"
-dest_files=["res://.godot/imported/kitchen_LRK.png-f29c138567018da28c2920120718a5d7.ctex"]
+source_file="res://art/real/Untitled_Artwork 9 copy.png"
+dest_files=["res://.godot/imported/Untitled_Artwork 9 copy.png-98e785512c6aacc3174acadda1949291.ctex"]
 
 [params]
 

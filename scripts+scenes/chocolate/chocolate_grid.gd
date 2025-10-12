@@ -7,6 +7,7 @@ var start_game = false
 @export var piece_scene: PackedScene
 @export var distance :=1.1
 
+@onready var chomp_logic = get_tree().get_first_node_in_group("chomp_logic")
 @onready var ui = get_tree().get_first_node_in_group("ui")
 
 var last_selected: Node3D = null
@@ -109,7 +110,8 @@ func get_next_select():
 	current_col = last_selected.col
 			
 func eat_chunk():
-	
+	if ui.player_num == 1:
+		chomp_logic.apply_move(current_row, current_col)
 	if current_row == 0 && current_col == 0:
 		ui.end_game(false)
 		return

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7u2v0syv4218"
-path="res://.godot/imported/doorswindowsstairs_LRK.png-137cb220baa96382eeb5bf1a778583bb.ctex"
+uid="uid://bfn6g5rm5yyjs"
+path="res://.godot/imported/Untitled_Artwork 10.png-256556e728cc75b42bbc2a98ed04358c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/free_assets/doorswindowsstairs_LRK.png"
-dest_files=["res://.godot/imported/doorswindowsstairs_LRK.png-137cb220baa96382eeb5bf1a778583bb.ctex"]
+source_file="res://art/real/Untitled_Artwork 10.png"
+dest_files=["res://.godot/imported/Untitled_Artwork 10.png-256556e728cc75b42bbc2a98ed04358c.ctex"]
 
 [params]
 
