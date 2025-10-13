@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://q53txsdrk265"]
+[gd_scene load_steps=10 format=3 uid="uid://q53txsdrk265"]
 
 [ext_resource type="Script" uid="uid://b64agk2mgkpl3" path="res://scripts+scenes/main/main.gd" id="1_23a56"]
 [ext_resource type="PackedScene" uid="uid://cmeapwopmcf2j" path="res://scripts+scenes/cafe/furniture.tscn" id="1_tgabw"]
 [ext_resource type="PackedScene" uid="uid://uode2e4hyk0a" path="res://scripts+scenes/cafe/player.tscn" id="2_6l2x1"]
 [ext_resource type="PackedScene" uid="uid://bsv2cofw8dwri" path="res://scripts+scenes/cafe/chocolate_object.tscn" id="4_6l2x1"]
-[ext_resource type="Texture2D" uid="uid://bolxastikur8q" path="res://art/real/Untitled_Artwork 9.png" id="5_i860p"]
+[ext_resource type="Texture2D" uid="uid://cfojbv7brcbst" path="res://art/real/counter.png" id="5_66h7y"]
 [ext_resource type="Texture2D" uid="uid://7dqtk1k3sl42" path="res://art/real/plant.png" id="6_rr3ts"]
-[ext_resource type="Texture2D" uid="uid://q6oh2s3lknpy" path="res://art/real/floor.png" id="7_66h7y"]
+[ext_resource type="Texture2D" uid="uid://bwhkg8bgmlt3v" path="res://art/real/door.png" id="7_okonf"]
+[ext_resource type="Texture2D" uid="uid://bw4ov2kq5n5pk" path="res://art/real/walls.png" id="8_28ndm"]
 [ext_resource type="Texture2D" uid="uid://b473abaub00xo" path="res://art/labubu.webp" id="8_rr3ts"]
 
 [node name="Cafe" type="Node2D"]
@@ -14,13 +15,14 @@ script = ExtResource("1_23a56")
 
 [node name="Player" parent="." instance=ExtResource("2_6l2x1")]
 z_index = 2
-position = Vector2(-10, 13)
+position = Vector2(-59, 998)
 
 [node name="ChocolateObject" parent="." instance=ExtResource("4_6l2x1")]
 z_index = 1
-position = Vector2(452, 158)
+position = Vector2(433, 830)
 
 [node name="Furniture" type="Node2D" parent="."]
+position = Vector2(-50, 652)
 
 [node name="Table" parent="Furniture" instance=ExtResource("1_tgabw")]
 position = Vector2(656, 710)
@@ -35,30 +37,34 @@ position = Vector2(-617, 706)
 position = Vector2(-630, 217)
 
 [node name="Counter" type="Sprite2D" parent="Furniture"]
-position = Vector2(-4, -361)
-texture = ExtResource("5_i860p")
+position = Vector2(54, -658)
+texture = ExtResource("5_66h7y")
 
 [node name="Plant" type="Sprite2D" parent="Furniture"]
 position = Vector2(912, -478)
 texture = ExtResource("6_rr3ts")
 
+[node name="Door" type="Sprite2D" parent="Furniture"]
+position = Vector2(-941, -526)
+texture = ExtResource("7_okonf")
+
 [node name="Floor" type="Sprite2D" parent="."]
 z_index = -100
 scale = Vector2(1, 1.2)
-texture = ExtResource("7_66h7y")
+texture = ExtResource("8_28ndm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -100
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = -100
-offset_left = -3345.0
-offset_top = -1552.0
-offset_right = 2578.0
-offset_bottom = 1300.0
+offset_left = -3397.0
+offset_top = -4159.0
+offset_right = 3190.0
+offset_bottom = 4135.0
 color = Color(0.487689, 0.622106, 0.345813, 1)
 
 [node name="Labub" type="Sprite2D" parent="."]
-position = Vector2(488, -20)
+position = Vector2(447, 936)
 scale = Vector2(0.6925, 0.6625)
 texture = ExtResource("8_rr3ts")
