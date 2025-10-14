@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://uode2e4hyk0a"]
+[gd_scene load_steps=12 format=3 uid="uid://uode2e4hyk0a"]
 
 [ext_resource type="Script" uid="uid://cxwpg2a0wep0b" path="res://scripts+scenes/cafe/player.gd" id="1_hb0v7"]
-[ext_resource type="Texture2D" uid="uid://b7lpaeg5cik7j" path="res://art/brownlabubu.webp" id="2_hb0v7"]
+[ext_resource type="Texture2D" uid="uid://c846pvrqe8feu" path="res://art/calico/front0.png" id="2_e4x13"]
+[ext_resource type="Texture2D" uid="uid://dh6lvw3rx0aax" path="res://art/calico/front1.png" id="3_1jyel"]
+[ext_resource type="Texture2D" uid="uid://caaae0oivvc25" path="res://art/calico/front_walk1.png" id="4_0u12p"]
+[ext_resource type="Texture2D" uid="uid://bjissy5euc8eo" path="res://art/calico/front_walk2.png" id="5_6oppo"]
+[ext_resource type="Texture2D" uid="uid://bw00mstiahkd" path="res://art/calico/side0.png" id="6_6401x"]
+[ext_resource type="Texture2D" uid="uid://cxvma80l415i6" path="res://art/calico/side1.png" id="7_he3c0"]
+[ext_resource type="Texture2D" uid="uid://dc662s47q4k5" path="res://art/calico/side_walk1.png" id="8_1ts1b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb0v7"]
 size = Vector2(147, 220)
@@ -10,10 +16,55 @@ size = Vector2(147, 220)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_hb0v7")
+"texture": ExtResource("2_e4x13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1jyel")
 }],
 "loop": true,
 "name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e4x13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0u12p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e4x13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6oppo")
+}],
+"loop": true,
+"name": &"front_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6401x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_he3c0")
+}],
+"loop": true,
+"name": &"side_default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6401x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_he3c0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1ts1b")
+}],
+"loop": true,
+"name": &"side_walk",
 "speed": 5.0
 }]
 
@@ -28,9 +79,9 @@ position = Vector2(-2.5, 11)
 shape = SubResource("RectangleShape2D_hb0v7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.5, 1.5)
-scale = Vector2(0.1, 0.1)
+position = Vector2(-23, 2)
 sprite_frames = SubResource("SpriteFrames_ntifa")
+frame_progress = 0.954623
 
 [node name="ActionableFinder" type="Area2D" parent="."]
 
@@ -38,7 +89,6 @@ sprite_frames = SubResource("SpriteFrames_ntifa")
 shape = SubResource("CircleShape2D_hb0v7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.7, 0.7)
 
 [connection signal="area_entered" from="ActionableFinder" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="ActionableFinder" to="." method="_on_area_2d_area_exited"]
