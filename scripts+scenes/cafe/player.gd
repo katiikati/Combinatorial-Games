@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 @onready var anim_sprite = $AnimatedSprite2D
 
 var in_dialogue = false
+var last_dir = Vector2(0,1)
 
 func _physics_process(delta: float) -> void:
 
@@ -21,31 +22,35 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		return
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction_x := Input.get_axis("ui_left", "ui_right")
 	if direction_x:
+		print("dir_x", direction_x)
 		velocity.x = direction_x * SPEED
-		anim_sprite.play("side_walk")
-		anim_sprite.scale =Vector2(1,1)
-		if(direction_x < 0):
-			anim_sprite.flip_h = true
-		else:
-			anim_sprite.flip_h = false
+		if velocity.x > 0:
+			anim_sprite.play("right_walk")
+			last_dir = Vector2(1,0)
+		elif velocity.x < 0:
+			anim_sprite.play("left_walk")
+			last_dir = Vector2(-1,0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	var direction_y := Input.get_axis("ui_up", "ui_down")
 	if direction_y:
 		velocity.y = direction_y * SPEED
-		anim_sprite.play("front_walk")
-		anim_sprite.scale =Vector2(1,1)
+		if !direction_x:
+			anim_sprite.play("front_walk")
+		last_dir = Vector2(0,1)
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	if velocity.length() ==0:
-		anim_sprite.play("default")
-		anim_sprite.scale = Vector2(1,1)
+		if last_dir == Vector2(1,0):
+			anim_sprite.play("right_default")
+		elif last_dir == Vector2(-1,0):
+			anim_sprite.play("left_default")
+		else:
+			anim_sprite.play("default")
 		
 	velocity = velocity.normalized() * SPEED
 	move_and_slide()

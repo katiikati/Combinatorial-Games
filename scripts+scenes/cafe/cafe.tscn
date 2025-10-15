@@ -4,15 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://cmeapwopmcf2j" path="res://scripts+scenes/cafe/furniture.tscn" id="1_tgabw"]
 [ext_resource type="PackedScene" uid="uid://uode2e4hyk0a" path="res://scripts+scenes/cafe/player.tscn" id="2_6l2x1"]
 [ext_resource type="PackedScene" uid="uid://bsv2cofw8dwri" path="res://scripts+scenes/cafe/chocolate_object.tscn" id="4_6l2x1"]
-[ext_resource type="Texture2D" uid="uid://b60fchvpaxmns" path="res://art/real/wall1.png" id="4_28ndm"]
-[ext_resource type="Texture2D" uid="uid://7dqtk1k3sl42" path="res://art/real/plant.png" id="6_rr3ts"]
-[ext_resource type="Texture2D" uid="uid://lydc1bwyk8vw" path="res://art/real/counter_bottom.png" id="7_aq6us"]
-[ext_resource type="Texture2D" uid="uid://bwhkg8bgmlt3v" path="res://art/real/door.png" id="7_okonf"]
-[ext_resource type="Texture2D" uid="uid://bw4ov2kq5n5pk" path="res://art/real/walls.png" id="8_28ndm"]
+[ext_resource type="Texture2D" uid="uid://b60fchvpaxmns" path="res://art/cafe/wall1.png" id="4_28ndm"]
+[ext_resource type="Texture2D" uid="uid://7dqtk1k3sl42" path="res://art/cafe/furniture/plant.png" id="6_rr3ts"]
+[ext_resource type="Texture2D" uid="uid://lydc1bwyk8vw" path="res://art/cafe/furniture/counter_bottom.png" id="7_aq6us"]
+[ext_resource type="Texture2D" uid="uid://bwhkg8bgmlt3v" path="res://art/cafe/furniture/door.png" id="7_okonf"]
+[ext_resource type="Texture2D" uid="uid://bw4ov2kq5n5pk" path="res://art/cafe/walls.png" id="8_28ndm"]
 [ext_resource type="Texture2D" uid="uid://b473abaub00xo" path="res://art/labubu.webp" id="8_rr3ts"]
-[ext_resource type="Texture2D" uid="uid://c7snrqhq2kwl5" path="res://art/real/counter_top.png" id="8_tme8i"]
+[ext_resource type="Texture2D" uid="uid://c7snrqhq2kwl5" path="res://art/cafe/furniture/counter_top.png" id="8_tme8i"]
 [ext_resource type="AudioStream" uid="uid://ccfakenxn23kp" path="res://art/audio/Caketown 1.mp3" id="10_okonf"]
-[ext_resource type="Texture2D" uid="uid://ba3416gillfmp" path="res://art/real/menu.png" id="10_tme8i"]
+[ext_resource type="Texture2D" uid="uid://ba3416gillfmp" path="res://art/cafe/furniture/menu.png" id="10_tme8i"]
 
 [node name="Cafe" type="Node2D"]
 script = ExtResource("1_23a56")
@@ -97,4 +97,3 @@ texture = ExtResource("8_rr3ts")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_okonf")
-autoplay = true
