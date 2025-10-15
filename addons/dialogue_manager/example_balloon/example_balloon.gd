@@ -7,7 +7,11 @@ class_name DialogueManagerExampleBalloon extends CanvasLayer
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_accept"
 
-@export var character_images = []
+@export var character_pics: Dictionary
+
+@onready var yapper1 = $Yapper1
+@onready var yapper2 = $Yapper2
+
 ## The dialogue resource
 var resource: DialogueResource
 
@@ -102,6 +106,16 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
+	
+	if character_pics.has(character_label.text):
+		if character_label.text == "Cali":
+			yapper1.visible = true
+			yapper1.texture = character_pics.get(character_label.text)
+			yapper2.visible = false
+		else:
+			yapper2.visible = true
+			yapper2.texture = character_pics.get(character_label.text)
+			yapper1.visible = false
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -120,7 +134,6 @@ func apply_dialogue_line() -> void:
 
 	# Wait for input
 	if dialogue_line.responses.size() > 0 && dialogue_label.finished_typing:
-		print("show responses")
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
 		can_get_response = false
@@ -134,7 +147,6 @@ func apply_dialogue_line() -> void:
 		is_waiting_for_input = true
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
-
 
 ## Go to the next line
 func next(next_id: String) -> void:

@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 		var actionables = actionable_finder.get_overlapping_areas()
 		for actionable in actionables:
 				if actionable.has_method("action"):
+					print("has action")
 					actionable.action()
 					
 	if in_dialogue:

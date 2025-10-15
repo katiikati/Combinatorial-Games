@@ -1,8 +1,10 @@
 ~ start
 Cocoa: [[Hi|Hello|Howdy]], I'm Cocoa. Whats up?
 - Nothing much
+	Cali: Nothing much
 	Cocoa: Alright, see you later. => END
 - Can I have some of that dubai chocolate?
+Cali: Can I have some of that dubai chocolate?
 Cocoa: Sure, but only if you play a game with me!
 => explain
 
@@ -11,7 +13,9 @@ Cocoa: We will play on this piece of chocolate here. On each move you can choose
 Cocoa: The goal is to not eat the bottom right square. The person who does that loses.
 Cocoa: Are you ready?
 - Yes!
+	Cali: Yes!
 - No
+	Cali: No
 	Cocoa: Ok I'll say it again => explain
 Cocoa: Great! Let's get started.
 do play_chocolate_game()

@@ -71,6 +71,10 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_36de5")
+character_pics = {
+"Cali": ExtResource("8_wqs7j"),
+"Cocoa": ExtResource("7_v42gu")
+}
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true

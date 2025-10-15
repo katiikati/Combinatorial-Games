@@ -71,7 +71,7 @@ offset = Vector2(0, -50)
 
 [node name="Player" parent="Furniture" instance=ExtResource("2_6l2x1")]
 y_sort_enabled = true
-position = Vector2(-670, -484)
+position = Vector2(79, 97)
 
 [node name="Menu" type="Sprite2D" parent="Furniture"]
 position = Vector2(184, -773)

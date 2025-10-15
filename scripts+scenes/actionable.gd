@@ -9,9 +9,9 @@ var dialogue_started: bool = false
 var connected_to_manager: bool = false
 
 func _ready() -> void:
-	if !has_node("../../Player"):
+	if !has_node("../../Furniture/Player"):
 		return
-	player_path = NodePath("../../Player")
+	player_path = NodePath("../../Furniture/Player")
 	player = get_node(player_path)
 	_connect_to_manager()
 	
