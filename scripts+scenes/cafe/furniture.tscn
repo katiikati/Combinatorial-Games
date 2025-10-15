@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0tfiuxehm4jn" path="res://art/cafe/furniture/table.png" id="1_6ep3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuw7n"]
-size = Vector2(559, 354)
+size = Vector2(559, 218)
 
 [node name="Furniture" type="StaticBody2D"]
 
@@ -12,5 +12,5 @@ position = Vector2(8, 1)
 texture = ExtResource("1_6ep3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-22.5, -26)
+position = Vector2(-22.5, -9)
 shape = SubResource("RectangleShape2D_yuw7n")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://q53txsdrk265"]
+[gd_scene load_steps=16 format=3 uid="uid://q53txsdrk265"]
 
 [ext_resource type="Script" uid="uid://b64agk2mgkpl3" path="res://scripts+scenes/main/main.gd" id="1_23a56"]
 [ext_resource type="PackedScene" uid="uid://cmeapwopmcf2j" path="res://scripts+scenes/cafe/furniture.tscn" id="1_tgabw"]
@@ -15,12 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://ba3416gillfmp" path="res://art/cafe/furniture/menu.png" id="10_tme8i"]
 [ext_resource type="Texture2D" uid="uid://b1ma3j7o54vdi" path="res://art/cafe/wall_top.png" id="11_ohf3f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohf3f"]
+size = Vector2(112, 222)
+
 [node name="Cafe" type="Node2D"]
 script = ExtResource("1_23a56")
-
-[node name="ChocolateObject" parent="." instance=ExtResource("4_6l2x1")]
-z_index = 1
-position = Vector2(433, 830)
 
 [node name="Wall1" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -71,7 +70,7 @@ offset = Vector2(0, -50)
 
 [node name="Player" parent="Furniture" instance=ExtResource("2_6l2x1")]
 y_sort_enabled = true
-position = Vector2(79, 97)
+position = Vector2(-133, 97)
 
 [node name="Menu" type="Sprite2D" parent="Furniture"]
 position = Vector2(184, -773)
@@ -100,10 +99,23 @@ offset_right = 2147.0
 offset_bottom = 4168.0
 color = Color(0.637418, 0.495465, 0.300023, 1)
 
-[node name="Labub" type="Sprite2D" parent="."]
-position = Vector2(447, 936)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_okonf")
+
+[node name="Workers" type="Node2D" parent="."]
+
+[node name="ChocolateObject" parent="Workers" instance=ExtResource("4_6l2x1")]
+z_index = 1
+position = Vector2(846, -528)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Workers"]
+position = Vector2(845, -578)
+
+[node name="Labub" type="Sprite2D" parent="Workers/StaticBody2D"]
+position = Vector2(-0.999999, -23)
 scale = Vector2(0.6925, 0.6625)
 texture = ExtResource("8_rr3ts")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_okonf")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workers/StaticBody2D"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_ohf3f")
