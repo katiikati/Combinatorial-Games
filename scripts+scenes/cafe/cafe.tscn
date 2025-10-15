@@ -1,28 +1,33 @@
-[gd_scene load_steps=11 format=3 uid="uid://q53txsdrk265"]
+[gd_scene load_steps=14 format=3 uid="uid://q53txsdrk265"]
 
 [ext_resource type="Script" uid="uid://b64agk2mgkpl3" path="res://scripts+scenes/main/main.gd" id="1_23a56"]
 [ext_resource type="PackedScene" uid="uid://cmeapwopmcf2j" path="res://scripts+scenes/cafe/furniture.tscn" id="1_tgabw"]
 [ext_resource type="PackedScene" uid="uid://uode2e4hyk0a" path="res://scripts+scenes/cafe/player.tscn" id="2_6l2x1"]
 [ext_resource type="PackedScene" uid="uid://bsv2cofw8dwri" path="res://scripts+scenes/cafe/chocolate_object.tscn" id="4_6l2x1"]
-[ext_resource type="Texture2D" uid="uid://cfojbv7brcbst" path="res://art/real/counter.png" id="5_66h7y"]
+[ext_resource type="Texture2D" uid="uid://b60fchvpaxmns" path="res://art/real/wall1.png" id="4_28ndm"]
 [ext_resource type="Texture2D" uid="uid://7dqtk1k3sl42" path="res://art/real/plant.png" id="6_rr3ts"]
+[ext_resource type="Texture2D" uid="uid://lydc1bwyk8vw" path="res://art/real/counter_bottom.png" id="7_aq6us"]
 [ext_resource type="Texture2D" uid="uid://bwhkg8bgmlt3v" path="res://art/real/door.png" id="7_okonf"]
 [ext_resource type="Texture2D" uid="uid://bw4ov2kq5n5pk" path="res://art/real/walls.png" id="8_28ndm"]
 [ext_resource type="Texture2D" uid="uid://b473abaub00xo" path="res://art/labubu.webp" id="8_rr3ts"]
+[ext_resource type="Texture2D" uid="uid://c7snrqhq2kwl5" path="res://art/real/counter_top.png" id="8_tme8i"]
 [ext_resource type="AudioStream" uid="uid://ccfakenxn23kp" path="res://art/audio/Caketown 1.mp3" id="10_okonf"]
+[ext_resource type="Texture2D" uid="uid://ba3416gillfmp" path="res://art/real/menu.png" id="10_tme8i"]
 
 [node name="Cafe" type="Node2D"]
 script = ExtResource("1_23a56")
-
-[node name="Player" parent="." instance=ExtResource("2_6l2x1")]
-z_index = 2
-position = Vector2(-59, 998)
 
 [node name="ChocolateObject" parent="." instance=ExtResource("4_6l2x1")]
 z_index = 1
 position = Vector2(433, 830)
 
+[node name="Wall1" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(2, -55)
+texture = ExtResource("4_28ndm")
+
 [node name="Furniture" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-50, 652)
 
 [node name="Table" parent="Furniture" instance=ExtResource("1_tgabw")]
@@ -37,19 +42,39 @@ position = Vector2(-617, 706)
 [node name="Table4" parent="Furniture" instance=ExtResource("1_tgabw")]
 position = Vector2(-630, 217)
 
-[node name="Counter" type="Sprite2D" parent="Furniture"]
-position = Vector2(54, -658)
-texture = ExtResource("5_66h7y")
-
 [node name="Plant" type="Sprite2D" parent="Furniture"]
-position = Vector2(912, -478)
+position = Vector2(887, -545)
 texture = ExtResource("6_rr3ts")
 
 [node name="Door" type="Sprite2D" parent="Furniture"]
-position = Vector2(-941, -526)
+position = Vector2(-921, -613)
 texture = ExtResource("7_okonf")
 
+[node name="Counter" type="StaticBody2D" parent="Furniture"]
+y_sort_enabled = true
+
+[node name="Bottom" type="Sprite2D" parent="Furniture/Counter"]
+position = Vector2(-178, -314)
+texture = ExtResource("7_aq6us")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/Counter"]
+position = Vector2(0, 2)
+polygon = PackedVector2Array(639, -242, 641, -330, 641, -610, 560, -619, -600, -618, -596, -571, 561, -569, 560, -305, -774, -320, -756, -241)
+
+[node name="Top" type="Sprite2D" parent="Furniture/Counter"]
+position = Vector2(15, -564)
+texture = ExtResource("8_tme8i")
+
+[node name="Player" parent="Furniture" instance=ExtResource("2_6l2x1")]
+y_sort_enabled = true
+position = Vector2(-670, -484)
+
+[node name="Menu" type="Sprite2D" parent="Furniture"]
+position = Vector2(184, -773)
+texture = ExtResource("10_tme8i")
+
 [node name="Floor" type="Sprite2D" parent="."]
+visible = false
 z_index = -100
 scale = Vector2(1, 1.2)
 texture = ExtResource("8_28ndm")
@@ -59,11 +84,11 @@ layer = -100
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = -100
-offset_left = -3397.0
-offset_top = -4159.0
-offset_right = 3190.0
-offset_bottom = 4135.0
-color = Color(0.487689, 0.622106, 0.345813, 1)
+offset_left = -4229.0
+offset_top = -3979.0
+offset_right = 2358.0
+offset_bottom = 4315.0
+color = Color(0.637418, 0.495465, 0.300023, 1)
 
 [node name="Labub" type="Sprite2D" parent="."]
 position = Vector2(447, 936)

@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if direction_x:
 		velocity.x = direction_x * SPEED
 		anim_sprite.play("side_walk")
-		anim_sprite.scale =Vector2(0.9,0.9)
+		anim_sprite.scale =Vector2(1,1)
 		if(direction_x < 0):
 			anim_sprite.flip_h = true
 		else:

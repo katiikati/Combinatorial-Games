@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://uode2e4hyk0a"]
+[gd_scene load_steps=14 format=3 uid="uid://uode2e4hyk0a"]
 
 [ext_resource type="Script" uid="uid://cxwpg2a0wep0b" path="res://scripts+scenes/cafe/player.gd" id="1_hb0v7"]
 [ext_resource type="Texture2D" uid="uid://c846pvrqe8feu" path="res://art/calico/front0.png" id="2_e4x13"]
@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://bjissy5euc8eo" path="res://art/calico/front_walk2.png" id="5_6oppo"]
 [ext_resource type="Texture2D" uid="uid://bw00mstiahkd" path="res://art/calico/side0.png" id="6_6401x"]
 [ext_resource type="Texture2D" uid="uid://cxvma80l415i6" path="res://art/calico/side1.png" id="7_he3c0"]
-[ext_resource type="Texture2D" uid="uid://dc662s47q4k5" path="res://art/calico/side_walk1.png" id="8_1ts1b"]
+[ext_resource type="Texture2D" uid="uid://ka314r4gto0q" path="res://art/calico/walk_right_0.png" id="8_0u12p"]
+[ext_resource type="Texture2D" uid="uid://cnd5op574hati" path="res://art/calico/walk_right_1.png" id="9_6oppo"]
+[ext_resource type="Texture2D" uid="uid://cvep3h337smde" path="res://art/calico/walk_right_2.png" id="10_6401x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb0v7"]
-size = Vector2(147, 220)
+size = Vector2(147, 188)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ntifa"]
 animations = [{
@@ -27,16 +29,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_e4x13")
-}, {
-"duration": 1.0,
 "texture": ExtResource("4_0u12p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_e4x13")
+"texture": ExtResource("3_1jyel")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_6oppo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1jyel")
 }],
 "loop": true,
 "name": &"front_walk",
@@ -55,13 +57,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_6401x")
+"texture": ExtResource("8_0u12p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_he3c0")
+"texture": ExtResource("9_6oppo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_1ts1b")
+"texture": ExtResource("8_0u12p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6401x")
 }],
 "loop": true,
 "name": &"side_walk",
@@ -75,13 +80,13 @@ radius = 142.61
 script = ExtResource("1_hb0v7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 11)
+position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_hb0v7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-23, 2)
 sprite_frames = SubResource("SpriteFrames_ntifa")
-frame_progress = 0.954623
+animation = &"side_walk"
 
 [node name="ActionableFinder" type="Area2D" parent="."]
 
@@ -89,6 +94,7 @@ frame_progress = 0.954623
 shape = SubResource("CircleShape2D_hb0v7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
 
 [connection signal="area_entered" from="ActionableFinder" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="ActionableFinder" to="." method="_on_area_2d_area_exited"]
