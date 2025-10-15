@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 
 	var direction_x := Input.get_axis("ui_left", "ui_right")
 	if direction_x:
-		print("dir_x", direction_x)
 		velocity.x = direction_x * SPEED
 		if velocity.x > 0:
 			anim_sprite.play("right_walk")

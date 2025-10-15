@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://q53txsdrk265"]
+[gd_scene load_steps=15 format=3 uid="uid://q53txsdrk265"]
 
 [ext_resource type="Script" uid="uid://b64agk2mgkpl3" path="res://scripts+scenes/main/main.gd" id="1_23a56"]
 [ext_resource type="PackedScene" uid="uid://cmeapwopmcf2j" path="res://scripts+scenes/cafe/furniture.tscn" id="1_tgabw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c7snrqhq2kwl5" path="res://art/cafe/furniture/counter_top.png" id="8_tme8i"]
 [ext_resource type="AudioStream" uid="uid://ccfakenxn23kp" path="res://art/audio/Caketown 1.mp3" id="10_okonf"]
 [ext_resource type="Texture2D" uid="uid://ba3416gillfmp" path="res://art/cafe/furniture/menu.png" id="10_tme8i"]
+[ext_resource type="Texture2D" uid="uid://b1ma3j7o54vdi" path="res://art/cafe/wall_top.png" id="11_ohf3f"]
 
 [node name="Cafe" type="Node2D"]
 script = ExtResource("1_23a56")
@@ -43,12 +44,14 @@ position = Vector2(-617, 706)
 position = Vector2(-630, 217)
 
 [node name="Plant" type="Sprite2D" parent="Furniture"]
-position = Vector2(887, -545)
+position = Vector2(893, -448)
 texture = ExtResource("6_rr3ts")
+offset = Vector2(0, -100)
 
 [node name="Door" type="Sprite2D" parent="Furniture"]
-position = Vector2(-921, -613)
+position = Vector2(-931, -543)
 texture = ExtResource("7_okonf")
+offset = Vector2(0, -70)
 
 [node name="Counter" type="StaticBody2D" parent="Furniture"]
 y_sort_enabled = true
@@ -62,8 +65,9 @@ position = Vector2(0, 2)
 polygon = PackedVector2Array(639, -242, 641, -330, 641, -610, 560, -619, -600, -618, -596, -571, 561, -569, 560, -305, -774, -320, -756, -241)
 
 [node name="Top" type="Sprite2D" parent="Furniture/Counter"]
-position = Vector2(15, -564)
+position = Vector2(15, -514)
 texture = ExtResource("8_tme8i")
+offset = Vector2(0, -50)
 
 [node name="Player" parent="Furniture" instance=ExtResource("2_6l2x1")]
 y_sort_enabled = true
@@ -72,6 +76,12 @@ position = Vector2(-670, -484)
 [node name="Menu" type="Sprite2D" parent="Furniture"]
 position = Vector2(184, -773)
 texture = ExtResource("10_tme8i")
+
+[node name="WallTop" type="Sprite2D" parent="Furniture"]
+y_sort_enabled = true
+position = Vector2(39, -580)
+texture = ExtResource("11_ohf3f")
+offset = Vector2(0, -200)
 
 [node name="Floor" type="Sprite2D" parent="."]
 visible = false
@@ -84,10 +94,10 @@ layer = -100
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = -100
-offset_left = -4229.0
-offset_top = -3979.0
-offset_right = 2358.0
-offset_bottom = 4315.0
+offset_left = -4440.0
+offset_top = -4126.0
+offset_right = 2147.0
+offset_bottom = 4168.0
 color = Color(0.637418, 0.495465, 0.300023, 1)
 
 [node name="Labub" type="Sprite2D" parent="."]

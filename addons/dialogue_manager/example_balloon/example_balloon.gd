@@ -7,6 +7,7 @@ class_name DialogueManagerExampleBalloon extends CanvasLayer
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_accept"
 
+@export var character_images = []
 ## The dialogue resource
 var resource: DialogueResource
 
