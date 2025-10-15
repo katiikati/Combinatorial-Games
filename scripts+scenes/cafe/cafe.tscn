@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://q53txsdrk265"]
+[gd_scene load_steps=17 format=3 uid="uid://q53txsdrk265"]
 
 [ext_resource type="Script" uid="uid://b64agk2mgkpl3" path="res://scripts+scenes/main/main.gd" id="1_23a56"]
 [ext_resource type="PackedScene" uid="uid://cmeapwopmcf2j" path="res://scripts+scenes/cafe/furniture.tscn" id="1_tgabw"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://ccfakenxn23kp" path="res://art/audio/Caketown 1.mp3" id="10_okonf"]
 [ext_resource type="Texture2D" uid="uid://ba3416gillfmp" path="res://art/cafe/furniture/menu.png" id="10_tme8i"]
 [ext_resource type="Texture2D" uid="uid://b1ma3j7o54vdi" path="res://art/cafe/wall_top.png" id="11_ohf3f"]
+[ext_resource type="PackedScene" uid="uid://d18telqa4jhut" path="res://scripts+scenes/ui.tscn" id="15_86ldm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohf3f"]
 size = Vector2(112, 222)
@@ -82,6 +83,24 @@ position = Vector2(39, -580)
 texture = ExtResource("11_ohf3f")
 offset = Vector2(0, -200)
 
+[node name="Workers" type="Node2D" parent="."]
+
+[node name="ChocolateObject" parent="Workers" instance=ExtResource("4_6l2x1")]
+z_index = 1
+position = Vector2(846, -528)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Workers"]
+position = Vector2(845, -578)
+
+[node name="Labub" type="Sprite2D" parent="Workers/StaticBody2D"]
+position = Vector2(-0.999999, -23)
+scale = Vector2(0.6925, 0.6625)
+texture = ExtResource("8_rr3ts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workers/StaticBody2D"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_ohf3f")
+
 [node name="Floor" type="Sprite2D" parent="."]
 visible = false
 z_index = -100
@@ -102,20 +121,5 @@ color = Color(0.637418, 0.495465, 0.300023, 1)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_okonf")
 
-[node name="Workers" type="Node2D" parent="."]
-
-[node name="ChocolateObject" parent="Workers" instance=ExtResource("4_6l2x1")]
-z_index = 1
-position = Vector2(846, -528)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Workers"]
-position = Vector2(845, -578)
-
-[node name="Labub" type="Sprite2D" parent="Workers/StaticBody2D"]
-position = Vector2(-0.999999, -23)
-scale = Vector2(0.6925, 0.6625)
-texture = ExtResource("8_rr3ts")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Workers/StaticBody2D"]
-position = Vector2(0, -15)
-shape = SubResource("RectangleShape2D_ohf3f")
+[node name="UI" parent="." instance=ExtResource("15_86ldm")]
+z_index = 20

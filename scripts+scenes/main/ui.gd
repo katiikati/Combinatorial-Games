@@ -103,6 +103,5 @@ func set_current_player(player: int):
 		player_1_select.visible = false
 		player_2_select.visible = true
 
-
 func _on_exit_pressed() -> void:
 		SceneManager.show_scene("res://scripts+scenes/cafe/cafe.tscn")
