@@ -20,4 +20,3 @@ func random_type_sound():
 
 func coins_inc():
 	coins += 1
-	coins_label.text = "Coins " + str(coins)

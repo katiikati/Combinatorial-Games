@@ -11,7 +11,7 @@
 size = Vector2(91, 41)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rxdu"]
-radius = 240.41
+radius = 163.15
 
 [node name="ChocolateObject" type="StaticBody2D"]
 script = ExtResource("1_whw5g")

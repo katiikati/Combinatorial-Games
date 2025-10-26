@@ -88,7 +88,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Note: this will no longer be reached if using Dialogue Manager > 2.32.2. To make skip handling
 	# simpler (so all of mouse/keyboard/joypad are together) it is now the responsibility of the
 	# dialogue balloon.
-	print("presed")
 			
 	if self.is_typing and visible_ratio < 1 and InputMap.has_action(skip_action) and event.is_action_pressed(skip_action):
 		get_viewport().set_input_as_handled()
