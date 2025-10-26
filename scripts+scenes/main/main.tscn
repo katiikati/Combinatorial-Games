@@ -2,18 +2,35 @@
 
 [ext_resource type="PackedScene" uid="uid://c2e8wbaqisfj3" path="res://scripts+scenes/chocolate/chocolate_bar.tscn" id="1_53q0u"]
 [ext_resource type="PackedScene" uid="uid://y6totfluuhlb" path="res://scripts+scenes/main/ui.tscn" id="1_pjrb6"]
+[ext_resource type="AudioStream" uid="uid://dnx4fsin1ps7p" path="res://art/audio/sfx/click3.wav" id="3_nwtb1"]
 
-[sub_resource type="Environment" id="Environment_pjrb6"]
-background_mode = 1
-background_color = Color(0.929167, 0.559375, 0.772068, 1)
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Main" type="Node2D"]
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -777.0
+offset_top = -535.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.97293, 0.721054, 0.76182, 1)
 
 [node name="UI" parent="." instance=ExtResource("1_pjrb6")]
+layout_mode = 1
 
 [node name="ChocolateBar" parent="." instance=ExtResource("1_53q0u")]
+layout_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_pjrb6")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nwtb1")

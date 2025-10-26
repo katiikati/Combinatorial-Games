@@ -120,6 +120,8 @@ color = Color(0.637418, 0.495465, 0.300023, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_okonf")
+autoplay = true
+bus = &"BGM"
 
 [node name="UI" parent="." instance=ExtResource("15_86ldm")]
 z_index = 20

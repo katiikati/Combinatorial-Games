@@ -3,6 +3,8 @@ extends Control
 var current_player = 1
 var player_num = 1
 
+@onready var audio_player = $AudioStreamPlayer
+
 @onready var choco_grid = get_tree().get_first_node_in_group("choco-grid")
 @onready var chomp_logic = $ChompLogic
 
@@ -44,14 +46,18 @@ func _process(delta: float) -> void:
 				multi_player.add_theme_stylebox_override("normal", pink_box)
 				
 		if Input.is_action_just_pressed("ui_accept"):
-			player_num = current_player_select
-			if player_num ==1:
-				chomp_logic.init_board(4,4)
-				single_play()
-			else:
-				multi_play()
-			start_game()
+			accept_player_num()
 	
+func accept_player_num():
+	audio_player.play()
+	player_num = current_player_select
+	if player_num ==1:
+		chomp_logic.init_board(4,4)
+		single_play()
+	else:
+		multi_play()
+	start_game()
+			
 func next_play():
 	if player_num ==1:
 		single_play()
@@ -111,3 +117,11 @@ func set_current_player(player: int):
 
 func _on_exit_pressed() -> void:
 		SceneManager.show_scene("res://scripts+scenes/cafe/cafe.tscn")
+
+func _on_multi_player_pressed() -> void:
+	current_player_select = 2
+	accept_player_num()
+
+func _on_single_player_pressed() -> void:
+	current_player_select = 1
+	accept_player_num()

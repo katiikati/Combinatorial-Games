@@ -5,7 +5,8 @@ var start_game = false
 @export var rows := 6
 @export var cols := 8
 @export var piece_scene: PackedScene
-@export var distance := 100
+@export var distance := 75
+@onready var audio_player = $AudioStreamPlayer
 
 @onready var chomp_logic = get_tree().get_first_node_in_group("chomp_logic")
 @onready var ui = get_tree().get_first_node_in_group("ui")
@@ -38,7 +39,7 @@ func _ready():
 	for r in range(rows):
 		for c in range(cols):
 			var piece = piece_scene.instantiate()
-			piece.position = Vector2(0, 0) + Vector2((c-2.5) * distance, (r-2.5) * distance)
+			piece.position = Vector2(0, 20) + Vector2((c-4) * distance, (r-3) * distance)
 			if c == 0 && r == 0:
 				var piece_sprite: TextureRect = piece
 				piece_sprite.modulate = Color(1, 0, 0)#red
@@ -54,6 +55,7 @@ func _unhandled_input(event: InputEvent):
 	
 	#stuff when keys are pressed
 	if event is InputEventKey && event.pressed:
+		audio_player.play()
 		var moved = false
 		
 		if event.is_action_pressed("up"):

@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://y6totfluuhlb"]
+[gd_scene load_steps=11 format=3 uid="uid://y6totfluuhlb"]
 
 [ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="1_jjlmp"]
 [ext_resource type="Script" uid="uid://dcensb2h5m6dy" path="res://scripts+scenes/main/ui_copy.gd" id="1_onein"]
 [ext_resource type="Script" uid="uid://bgw85v3cg2drk" path="res://scripts+scenes/chocolate/chomp.gd" id="2_wkh0s"]
 [ext_resource type="StyleBox" uid="uid://icut6ayt2ol0" path="res://themes/dark_pink_round.tres" id="4_al0vb"]
 [ext_resource type="StyleBox" uid="uid://gnppqvl5tdqg" path="res://themes/pink_round.tres" id="5_4q4ln"]
+[ext_resource type="AudioStream" uid="uid://dnx4fsin1ps7p" path="res://art/audio/sfx/click3.wav" id="6_al0vb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjlmp"]
-bg_color = Color(0.941472, 0.372373, 0.555458, 1)
+bg_color = Color(0.94, 0.376, 0.5546, 0.513726)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -290,6 +291,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = SubResource("GDScript_onein")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_al0vb")
+bus = &"SFX"
 
 [connection signal="pressed" from="CanvasLayer/LostPanel/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlaySettings/VBox/SinglePlayer" to="." method="_on_single_player_pressed"]
