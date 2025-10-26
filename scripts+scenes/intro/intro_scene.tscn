@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://de25bq4f53fcq"]
+[gd_scene load_steps=5 format=3 uid="uid://de25bq4f53fcq"]
 
 [ext_resource type="Script" uid="uid://dumxgr6dg6fus" path="res://scripts+scenes/intro/intro_scene.gd" id="1_v8chr"]
 [ext_resource type="Resource" uid="uid://bd2igtf2trl43" path="res://intro.dialogue" id="2_gq44x"]
+[ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="3_x2uoc"]
+[ext_resource type="StyleBox" uid="uid://blufniw2k0a3k" path="res://themes/mid_pink_dark.tres" id="4_kisjh"]
 
 [node name="IntroScene" type="Control"]
 layout_mode = 3
@@ -13,15 +15,26 @@ grow_vertical = 2
 script = ExtResource("1_v8chr")
 dialogue_resource = ExtResource("2_gq44x")
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1236.0
+offset_bottom = 690.0
+color = Color(0.59794, 0.761893, 0.501181, 1)
+
+[node name="TextEdit" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 386.0
-offset_top = 142.0
-offset_right = -398.0
-offset_bottom = -431.0
+offset_left = 336.0
+offset_top = 74.0
+offset_right = -307.0
+offset_bottom = -441.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press any key to start"
+theme_override_fonts/font = ExtResource("3_x2uoc")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("4_kisjh")
+text = "Press space "
+horizontal_alignment = 1
+vertical_alignment = 1

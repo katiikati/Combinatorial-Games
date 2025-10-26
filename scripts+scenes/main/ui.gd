@@ -69,6 +69,7 @@ func _on_single_player_pressed() -> void:
 	single_play()
 	
 func start_game():
+	GameManager.audio_player.play()
 	settings_panel.visible = false
 	choco_grid.start_game = true
 	return
@@ -104,4 +105,5 @@ func set_current_player(player: int):
 		player_2_select.visible = true
 
 func _on_exit_pressed() -> void:
+		GameManager.audio_player.play()
 		SceneManager.show_scene("res://scripts+scenes/cafe/cafe.tscn")

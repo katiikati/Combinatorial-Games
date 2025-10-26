@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://q53txsdrk265"]
+[gd_scene load_steps=19 format=3 uid="uid://q53txsdrk265"]
 
 [ext_resource type="Script" uid="uid://b64agk2mgkpl3" path="res://scripts+scenes/main/main.gd" id="1_23a56"]
 [ext_resource type="PackedScene" uid="uid://cmeapwopmcf2j" path="res://scripts+scenes/cafe/furniture.tscn" id="1_tgabw"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://ba3416gillfmp" path="res://art/cafe/furniture/menu.png" id="10_tme8i"]
 [ext_resource type="Texture2D" uid="uid://b1ma3j7o54vdi" path="res://art/cafe/wall_top.png" id="11_ohf3f"]
 [ext_resource type="PackedScene" uid="uid://d18telqa4jhut" path="res://scripts+scenes/ui.tscn" id="15_86ldm"]
+[ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="16_h30sn"]
+[ext_resource type="Script" uid="uid://bgl1xvapaxc5i" path="res://scripts+scenes/cafe/coins.gd" id="17_ywwfb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohf3f"]
 size = Vector2(112, 222)
@@ -124,4 +126,15 @@ autoplay = true
 bus = &"BGM"
 
 [node name="UI" parent="." instance=ExtResource("15_86ldm")]
+visible = false
 z_index = 20
+
+[node name="Coins" type="Label" parent="."]
+offset_left = 59.0
+offset_top = 45.0
+offset_right = 292.0
+offset_bottom = 148.0
+theme_override_fonts/font = ExtResource("16_h30sn")
+theme_override_font_sizes/font_size = 30
+text = "Coins: 0"
+script = ExtResource("17_ywwfb")

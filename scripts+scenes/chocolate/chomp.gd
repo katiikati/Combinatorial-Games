@@ -1,8 +1,9 @@
 extends Node
 
-var rows := 4
-var cols := 7
+var rows := 6
+var cols := 8
 var board := [] #array of where chocolate squares are
+var squares_removed:= []
 var losing_pos := Vector2()
 
 func init_board(r: int, c: int) -> void:
@@ -29,6 +30,7 @@ func valid_moves() -> Array:
 	return moves
 	
 func apply_move(r: int, c: int) -> bool:
+	squares_removed.append(Vector2(r, c))
 	if not in_bounds(r,c) || not board[r][c]:
 		return false
 	
@@ -121,6 +123,8 @@ func choose_best_move_minimax() -> Variant:
 	restore_board(saved_global)
 	print("moves", moves)
 	var mv = moves[randi() % moves.size()]
+	if mv.x ==0 && mv.y ==0:
+		print("loser")
 	print("applying", mv.x, mv.y)
 	apply_move(mv.x, mv.y)
 	return mv

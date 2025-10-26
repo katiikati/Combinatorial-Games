@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://y6totfluuhlb"]
+[gd_scene load_steps=13 format=3 uid="uid://y6totfluuhlb"]
 
 [ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="1_jjlmp"]
 [ext_resource type="Script" uid="uid://dcensb2h5m6dy" path="res://scripts+scenes/main/ui_copy.gd" id="1_onein"]
 [ext_resource type="Script" uid="uid://bgw85v3cg2drk" path="res://scripts+scenes/chocolate/chomp.gd" id="2_wkh0s"]
+[ext_resource type="StyleBox" uid="uid://blufniw2k0a3k" path="res://themes/mid_pink_dark.tres" id="4_8m6t2"]
 [ext_resource type="StyleBox" uid="uid://icut6ayt2ol0" path="res://themes/dark_pink_round.tres" id="4_al0vb"]
-[ext_resource type="StyleBox" uid="uid://gnppqvl5tdqg" path="res://themes/pink_round.tres" id="5_4q4ln"]
+[ext_resource type="StyleBox" uid="uid://bbcmtddowbe32" path="res://themes/grey_pink.tres" id="5_al0vb"]
+[ext_resource type="StyleBox" uid="uid://c6wuo5ac08u5f" path="res://themes/mid_pink.tres" id="5_cxu8i"]
 [ext_resource type="AudioStream" uid="uid://dnx4fsin1ps7p" path="res://art/audio/sfx/click3.wav" id="6_al0vb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjlmp"]
@@ -86,10 +88,10 @@ anchor_left = 0.762
 anchor_top = 0.082
 anchor_right = 0.896
 anchor_bottom = 0.167
-offset_left = 0.175964
-offset_top = -0.136002
-offset_right = -0.192017
-offset_bottom = -0.216003
+offset_left = 35.176
+offset_top = -12.136
+offset_right = 34.808
+offset_bottom = -12.216
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 40
 text = "Player 2"
@@ -109,7 +111,6 @@ offset_bottom = 0.025013
 theme_override_styles/panel = SubResource("StyleBoxFlat_jjlmp")
 
 [node name="LostPanel" type="Panel" parent="CanvasLayer"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.319
 anchor_top = 0.264
@@ -154,12 +155,13 @@ offset_left = 0.139999
 offset_top = -0.132996
 offset_right = 0.0739746
 offset_bottom = 0.147003
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("4_al0vb")
-theme_override_styles/pressed_mirrored = ExtResource("5_4q4ln")
-theme_override_styles/pressed = ExtResource("4_al0vb")
-theme_override_styles/normal = ExtResource("4_al0vb")
+theme_override_styles/hover = ExtResource("4_8m6t2")
+theme_override_styles/pressed_mirrored = ExtResource("4_8m6t2")
+theme_override_styles/pressed = ExtResource("4_8m6t2")
+theme_override_styles/normal = ExtResource("5_cxu8i")
 text = "Exit"
 
 [node name="PlaySettings" type="Panel" parent="CanvasLayer"]
@@ -219,8 +221,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("5_4q4ln")
-theme_override_styles/pressed = ExtResource("5_4q4ln")
+theme_override_styles/hover = ExtResource("4_8m6t2")
+theme_override_styles/pressed = ExtResource("4_8m6t2")
 theme_override_styles/normal = ExtResource("4_al0vb")
 text = "Single Player"
 
@@ -230,26 +232,29 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("5_4q4ln")
-theme_override_styles/pressed = ExtResource("5_4q4ln")
-theme_override_styles/normal = ExtResource("5_4q4ln")
+theme_override_styles/hover = ExtResource("4_8m6t2")
+theme_override_styles/pressed = ExtResource("4_8m6t2")
+theme_override_styles/normal = ExtResource("4_8m6t2")
 text = "Multi Player"
 
 [node name="Thinking" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.438
-anchor_top = 0.059
-anchor_right = 0.562
-anchor_bottom = 0.13
-offset_left = 0.423981
-offset_top = -0.232002
-offset_right = 0.575928
-offset_bottom = -0.240005
+anchor_top = 0.465
+anchor_right = 0.572
+anchor_bottom = 0.535
+offset_left = -416.576
+offset_top = -181.32
+offset_right = 408.056
+offset_bottom = 272.32
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_jjlmp")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("5_al0vb")
 text = "Thinking..."
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="You" type="Label" parent="CanvasLayer"]
 visible = false
@@ -279,6 +284,23 @@ offset_top = 0.974998
 offset_right = -0.0039978
 offset_bottom = 1.02501
 theme_override_styles/panel = SubResource("StyleBoxFlat_obaa7")
+
+[node name="Instuctions" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 324.0
+offset_top = 21.0
+offset_right = -319.0
+offset_bottom = -549.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_jjlmp")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("5_cxu8i")
+text = "WASD to move, ENTER to select"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ChompLogic" type="Control" parent="." groups=["chomp_logic"]]
 anchors_preset = 0

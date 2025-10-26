@@ -3,8 +3,6 @@ extends Control
 var current_player = 1
 var player_num = 1
 
-@onready var audio_player = $AudioStreamPlayer
-
 @onready var choco_grid = get_tree().get_first_node_in_group("choco-grid")
 @onready var chomp_logic = $ChompLogic
 
@@ -33,6 +31,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if settings_panel.visible:
 		if Input.is_action_just_pressed("up") || Input.is_action_just_pressed("down"):
+			GameManager.random_type_sound()
 			print(single_player.get_class())
 			if current_player_select == 1:
 				print("switch to 2")
@@ -49,7 +48,6 @@ func _process(delta: float) -> void:
 			accept_player_num()
 	
 func accept_player_num():
-	audio_player.play()
 	player_num = current_player_select
 	if player_num ==1:
 		chomp_logic.init_board(4,4)
@@ -99,6 +97,7 @@ func start_game():
 func end_game(you_won: bool):
 	if player_num == 1:
 		if you_won:
+			GameManager.coins_inc()
 			lost_panel_text.text = "You won!!!"
 		else:
 			lost_panel_text.text = "You lost </3"
@@ -116,6 +115,7 @@ func set_current_player(player: int):
 		player_2_select.visible = true
 
 func _on_exit_pressed() -> void:
+		GameManager.random_type_sound()
 		SceneManager.show_scene("res://scripts+scenes/cafe/cafe.tscn")
 
 func _on_multi_player_pressed() -> void:

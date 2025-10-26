@@ -6,7 +6,6 @@ var start_game = false
 @export var cols := 8
 @export var piece_scene: PackedScene
 @export var distance := 75
-@onready var audio_player = $AudioStreamPlayer
 
 @onready var chomp_logic = get_tree().get_first_node_in_group("chomp_logic")
 @onready var ui = get_tree().get_first_node_in_group("ui")
@@ -55,7 +54,7 @@ func _unhandled_input(event: InputEvent):
 	
 	#stuff when keys are pressed
 	if event is InputEventKey && event.pressed:
-		audio_player.play()
+		GameManager.random_type_sound()
 		var moved = false
 		
 		if event.is_action_pressed("up"):

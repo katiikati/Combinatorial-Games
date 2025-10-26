@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbfxarqoblciv"]
+[gd_scene load_steps=3 format=3 uid="uid://dbfxarqoblciv"]
 
 [ext_resource type="Script" uid="uid://cc4ly8vmsfanv" path="res://scripts+scenes/game_manager.gd" id="1_70yv6"]
+[ext_resource type="AudioStream" uid="uid://dnx4fsin1ps7p" path="res://art/audio/sfx/click3.wav" id="2_smx3j"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_70yv6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_smx3j")

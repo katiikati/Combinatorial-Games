@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2e8wbaqisfj3"]
+[gd_scene load_steps=3 format=3 uid="uid://c2e8wbaqisfj3"]
 
 [ext_resource type="Script" uid="uid://5f8fi1hoio7v" path="res://scripts+scenes/chocolate/chocolate_grid.gd" id="1_b4c1o"]
 [ext_resource type="PackedScene" uid="uid://d07t0op5o6dhc" path="res://scripts+scenes/chocolate/chocolate_square.tscn" id="2_0y2n6"]
-[ext_resource type="AudioStream" uid="uid://dnx4fsin1ps7p" path="res://art/audio/sfx/click3.wav" id="3_d8yki"]
 
 [node name="ChocolateBar" type="Control" groups=["choco-grid"]]
 layout_mode = 3
@@ -13,7 +12,3 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b4c1o")
 piece_scene = ExtResource("2_0y2n6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_d8yki")
-bus = &"SFX"
