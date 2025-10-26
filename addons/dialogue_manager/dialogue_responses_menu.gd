@@ -140,7 +140,6 @@ func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:
 
 	if !example_balloon.can_get_response: return
 
-	print("select response")
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		get_viewport().set_input_as_handled()
 		response_selected.emit(response)

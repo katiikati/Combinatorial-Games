@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Combinatorial Games"
-run/main_scene="uid://bfrx6sgh567e"
+run/main_scene="uid://de25bq4f53fcq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneManager="*res://scripts+scenes/SceneManager.gd"
+GameManager="*res://game_manager.tscn"
 
 [display]
 
@@ -71,4 +72,4 @@ interact={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/chocolate.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/chocolate.dialogue", "res://intro.dialogue")

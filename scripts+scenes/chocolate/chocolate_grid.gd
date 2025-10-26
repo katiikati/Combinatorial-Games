@@ -10,7 +10,7 @@ var start_game = false
 @onready var chomp_logic = get_tree().get_first_node_in_group("chomp_logic")
 @onready var ui = get_tree().get_first_node_in_group("ui")
 
-var last_selected: Node3D = null
+var last_selected: TextureRect = null
 var current_row:int
 var current_col: int
 
@@ -36,12 +36,12 @@ func _ready():
 	for r in range(rows):
 		for c in range(cols):
 			var piece = piece_scene.instantiate()
-			piece.position = Vector3(c * distance -x_offset, r * distance-y_offset, 0)
+			piece.position = Vector2(c * distance -x_offset, r * distance-y_offset)
 			if c == 0 && r == 0:
-				var piece_mesh = piece.get_node("ChocolateMesh")
-				var mat = piece_mesh.get_active_material(0).duplicate()
-				mat.albedo_color = Color(1, 0, 0) # red
-				piece_mesh.set_surface_override_material(0, mat)
+				var piece_sprite: TextureRect = piece
+				#var mat: Material = piece_mesh.material
+				piece_sprite.modulate = Color(1, 0, 0) # red
+				#piece_mesh.set_surface_override_material(0, mat)
 			piece.row = r
 			piece.col = c
 			existing_points.append(Vector2(r, c))

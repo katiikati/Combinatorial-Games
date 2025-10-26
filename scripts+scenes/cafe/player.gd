@@ -10,7 +10,12 @@ const JUMP_VELOCITY = -400.0
 var in_dialogue = false
 var last_dir = Vector2(0,1)
 
+func _ready():
+	GameManager.player = self
+
 func _physics_process(delta: float) -> void:
+	if DialogueManager.in_dialogue:
+		return
 
 	if Input.is_action_just_pressed("ui_accept"):
 		var actionables = actionable_finder.get_overlapping_areas()

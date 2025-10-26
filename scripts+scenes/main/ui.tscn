@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://y6totfluuhlb"]
+[gd_scene load_steps=10 format=3 uid="uid://y6totfluuhlb"]
 
 [ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="1_jjlmp"]
 [ext_resource type="Script" uid="uid://dcensb2h5m6dy" path="res://scripts+scenes/main/ui_copy.gd" id="1_onein"]
 [ext_resource type="Script" uid="uid://bgw85v3cg2drk" path="res://scripts+scenes/chocolate/chomp.gd" id="2_wkh0s"]
 [ext_resource type="StyleBox" uid="uid://icut6ayt2ol0" path="res://themes/dark_pink_round.tres" id="4_al0vb"]
 [ext_resource type="StyleBox" uid="uid://gnppqvl5tdqg" path="res://themes/pink_round.tres" id="5_4q4ln"]
-[ext_resource type="Script" uid="uid://do31qcvetyl15" path="res://scripts+scenes/main/ai_controll.gd" id="6_al0vb"]
-[ext_resource type="BehaviorTree" uid="uid://dg8w86e4w33ob" path="res://ai/trees/first_bt.tres" id="7_4q4ln"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjlmp"]
 bg_color = Color(0.941472, 0.372373, 0.555458, 1)
@@ -28,6 +26,18 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="GDScript" id="GDScript_onein"]
+script/source = "extends Node
+
+var bt_runner: Node = null
+
+func _ready():
+	pass
+	
+func _process(delta):
+	pass
+"
 
 [node name="ChocolateUI" type="Control" groups=["ui"]]
 layout_mode = 3
@@ -279,8 +289,7 @@ script = ExtResource("2_wkh0s")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("6_al0vb")
-tree = ExtResource("7_4q4ln")
+script = SubResource("GDScript_onein")
 
 [connection signal="pressed" from="CanvasLayer/LostPanel/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlaySettings/VBox/SinglePlayer" to="." method="_on_single_player_pressed"]

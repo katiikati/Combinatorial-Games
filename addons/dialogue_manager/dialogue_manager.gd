@@ -1,5 +1,7 @@
 extends Node
 
+var main_scene_path = NodePath("res://scripts+scenes/cafe/cafe.tscn")
+
 const DialogueResource = preload("./dialogue_resource.gd")
 const DialogueLine = preload("./dialogue_line.gd")
 const DialogueResponse = preload("./dialogue_response.gd")
@@ -67,6 +69,7 @@ var _dotnet_dialogue_manager: RefCounted
 
 var _expression_parser: DMExpressionParser = DMExpressionParser.new()
 
+var in_dialogue = true
 
 func _ready() -> void:
 	# Cache the known Node2D properties
@@ -80,6 +83,8 @@ func _ready() -> void:
 	if not Engine.has_singleton("DialogueManager"):
 		Engine.register_singleton("DialogueManager", self)
 
+func next_scene():
+	get_tree().change_scene_to_file(main_scene_path)
 
 ## Step through lines and run any mutations until we either hit some dialogue or the end of the conversation
 func get_next_dialogue_line(resource: DialogueResource, key: String = "", extra_game_states: Array = [], mutation_behaviour: DMConstants.MutationBehaviour = DMConstants.MutationBehaviour.Wait) -> DialogueLine:
@@ -106,6 +111,7 @@ func get_next_dialogue_line(resource: DialogueResource, key: String = "", extra_
 	# If our dialogue is nothing then we hit the end
 	if not _is_valid(dialogue):
 		dialogue_ended.emit.call_deferred(resource)
+		in_dialogue = false
 		return null
 
 	# Run the mutation if it is one
@@ -121,6 +127,7 @@ func get_next_dialogue_line(resource: DialogueResource, key: String = "", extra_
 		if actual_next_id in [DMConstants.ID_END_CONVERSATION, DMConstants.ID_NULL, null]:
 			# End the conversation
 			dialogue_ended.emit.call_deferred(resource)
+			in_dialogue = false
 			return null
 		else:
 			return await get_next_dialogue_line(resource, dialogue.next_id, extra_game_states, mutation_behaviour)
@@ -475,6 +482,7 @@ func _start_balloon(balloon: Node, resource: DialogueResource, title: String, ex
 
 	dialogue_started.emit(resource)
 	bridge_dialogue_started.emit(resource)
+	in_dialogue = true
 
 
 # Get the path to the example balloon

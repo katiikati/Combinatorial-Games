@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="6_byvwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40j74"]
-size = Vector2(67, 28)
+size = Vector2(91, 41)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rxdu"]
 radius = 240.41
@@ -17,7 +17,7 @@ radius = 240.41
 script = ExtResource("1_whw5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -2)
+position = Vector2(3.5, 1.5)
 shape = SubResource("RectangleShape2D_40j74")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

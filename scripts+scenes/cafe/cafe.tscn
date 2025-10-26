@@ -87,10 +87,10 @@ offset = Vector2(0, -200)
 
 [node name="ChocolateObject" parent="Workers" instance=ExtResource("4_6l2x1")]
 z_index = 1
-position = Vector2(846, -528)
+position = Vector2(115, 798)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Workers"]
-position = Vector2(845, -578)
+position = Vector2(114, 748)
 
 [node name="Labub" type="Sprite2D" parent="Workers/StaticBody2D"]
 position = Vector2(-0.999999, -23)

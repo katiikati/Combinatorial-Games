@@ -14,7 +14,6 @@ func _on_hotbar_equip(item: Item) -> void:
 		current_scene.currently_equipped = item
 		
 func add_item(item: Item, amount: int =1):
-	print(item.title)
 	for slot in hotbar.get_children():
 		if slot.item == null:
 			slot.item = item

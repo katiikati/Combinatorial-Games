@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=15 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_36de5"]
 [ext_resource type="StyleBox" uid="uid://bfq0dcfir08q5" path="res://themes/white_round.tres" id="2_1337t"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="3_kmygl"]
+[ext_resource type="Texture2D" uid="uid://b473abaub00xo" path="res://art/labubu.webp" id="4_wqs7j"]
 [ext_resource type="StyleBox" uid="uid://icut6ayt2ol0" path="res://themes/dark_pink_round.tres" id="6_kmygl"]
 [ext_resource type="Texture2D" uid="uid://b7lpaeg5cik7j" path="res://art/brownlabubu.webp" id="7_v42gu"]
 [ext_resource type="Texture2D" uid="uid://bxudghsl6k2bo" path="res://art/calico/f0.png" id="8_wqs7j"]
@@ -73,7 +74,8 @@ layer = 100
 script = ExtResource("1_36de5")
 character_pics = {
 "Cali": ExtResource("8_wqs7j"),
-"Cocoa": ExtResource("7_v42gu")
+"Cocoa": ExtResource("7_v42gu"),
+"Mittens": ExtResource("4_wqs7j")
 }
 
 [node name="Balloon" type="Control" parent="."]

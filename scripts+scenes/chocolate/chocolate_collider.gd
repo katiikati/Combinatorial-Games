@@ -1,15 +1,14 @@
-extends StaticBody3D
+extends TextureRect
 
 signal piece_clicked(row, col)
 
-@onready var selection_frame = $ChocolateMesh/Glow
+@onready var selection_frame = $Glow
 
 var row
 var col
 
-func _input_event(camera, event, position, normal, shape_idx):
+func _input_event(vp, event, i):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print("clicked")
 		emit_signal("piece clicked", row, col)
 
 func set_selected(selected: bool):
