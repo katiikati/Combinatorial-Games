@@ -5,7 +5,7 @@ var start_game = false
 @export var rows := 6
 @export var cols := 8
 @export var piece_scene: PackedScene
-@export var distance := 20
+@export var distance := 100
 
 @onready var chomp_logic = get_tree().get_first_node_in_group("chomp_logic")
 @onready var ui = get_tree().get_first_node_in_group("ui")
@@ -29,15 +29,17 @@ func _ready():
 	prev_row = current_row
 	prev_col = current_col
 	
-	var x_offset = (cols - 1) * distance * 0.5
-	var y_offset = (rows - 1) * distance * 0.5
+	var vp_size = get_viewport_rect().size
+	
+	var x_offset = -vp_size.x/2 + (cols - 1) * distance * 0.5
+	var y_offset = -vp_size.y/2 + (rows - 1) * distance * 0.5
 	
 	#spawn chocolate squares
 	for r in range(rows):
 		for c in range(cols):
 			var piece = piece_scene.instantiate()
-			piece.position = Vector2(c * distance -x_offset, r * distance-y_offset)
-			if c == 0 && r == 5:
+			piece.position = Vector2(0, 0) + Vector2((c-2.5) * distance, (r-2.5) * distance)
+			if c == 0 && r == 0:
 				var piece_sprite: TextureRect = piece
 				piece_sprite.modulate = Color(1, 0, 0)#red
 			piece.row = r

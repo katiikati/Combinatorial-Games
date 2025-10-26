@@ -74,7 +74,10 @@ func _ready() -> void:
 
 
 func _unhandled_input(_event: InputEvent) -> void:
-	if not balloon.visible or _event.echo:
+	if not balloon.visible:
+		return
+		
+	if _event is InputEventKey and _event.echo:
 		return
 	# Only the balloon is allowed to handle input while it's showing
 	get_viewport().set_input_as_handled()
@@ -101,6 +104,7 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
 	mutation_cooldown.stop()
+	await get_tree().process_frame
 
 	is_waiting_for_input = false
 	balloon.focus_mode = Control.FOCUS_ALL

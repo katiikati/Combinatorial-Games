@@ -1,4 +1,9 @@
 ~ start
+Cali: Aw man
+do next_scene()
+=> END
+
+~ long_start
 Mittens: [[Hi|Hello|Howdy]], are you the new hire?
 Cali: Yes, that me
 Mittens: Well I'll give you a tour of this place

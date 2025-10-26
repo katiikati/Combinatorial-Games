@@ -7,14 +7,13 @@
 background_mode = 1
 background_color = Color(0.929167, 0.559375, 0.772068, 1)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node2D"]
 
 [node name="UI" parent="." instance=ExtResource("1_pjrb6")]
 
 [node name="ChocolateBar" parent="." instance=ExtResource("1_53q0u")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pjrb6")

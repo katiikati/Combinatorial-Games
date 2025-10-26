@@ -1,10 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://d07t0op5o6dhc"]
 
 [ext_resource type="Script" uid="uid://dy267vya2cyx8" path="res://scripts+scenes/chocolate/chocolate_collider.gd" id="1_dsfjg"]
-[ext_resource type="Texture2D" uid="uid://bsybnk2xb46o5" path="res://art/cafe/chocolate.png" id="2_nuost"]
+[ext_resource type="Texture2D" uid="uid://iwlu5ynpmmre" path="res://art/games/choco_sq.png" id="1_nuost"]
 
 [node name="ChocolateSquare" type="TextureRect"]
-texture = ExtResource("2_nuost")
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("1_nuost")
+expand_mode = 1
 script = ExtResource("1_dsfjg")
 
 [node name="Glow" type="TextureRect" parent="."]
@@ -16,4 +19,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_nuost")
+texture = ExtResource("1_nuost")
+expand_mode = 1
