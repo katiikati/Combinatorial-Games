@@ -88,6 +88,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Note: this will no longer be reached if using Dialogue Manager > 2.32.2. To make skip handling
 	# simpler (so all of mouse/keyboard/joypad are together) it is now the responsibility of the
 	# dialogue balloon.
+	print("presed")
+	if event.echo:
+			return
+			
 	if self.is_typing and visible_ratio < 1 and InputMap.has_action(skip_action) and event.is_action_pressed(skip_action):
 		get_viewport().set_input_as_handled()
 		skip_typing()
@@ -95,6 +99,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 ## Start typing out the text
 func type_out() -> void:
+
 	text = dialogue_line.text
 	visible_characters = 0
 	visible_ratio = 0
@@ -106,7 +111,8 @@ func type_out() -> void:
 	self.is_typing = true
 
 	# Allow typing listeners a chance to connect
-	await get_tree().process_frame
+	if get_tree():
+		await get_tree().process_frame
 
 	if get_total_character_count() == 0:
 		self.is_typing = false
@@ -123,6 +129,7 @@ func skip_typing() -> void:
 	visible_characters = get_total_character_count()
 	self.is_typing = false
 	skipped_typing.emit()
+	await get_tree().process_frame
 
 
 # Type out the next character(s)

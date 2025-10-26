@@ -3,30 +3,12 @@
 [ext_resource type="Script" uid="uid://5f8fi1hoio7v" path="res://scripts+scenes/chocolate/chocolate_grid.gd" id="1_b4c1o"]
 [ext_resource type="PackedScene" uid="uid://d07t0op5o6dhc" path="res://scripts+scenes/chocolate/chocolate_square.tscn" id="2_0y2n6"]
 
-[node name="ChocolateBar" type="Control"]
+[node name="ChocolateBar" type="Control" groups=["choco-grid"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ChocolateGrid" type="GridContainer" parent="." groups=["choco-grid"]]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = -8.0
-offset_right = 5.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-columns = 6
 script = ExtResource("1_b4c1o")
-cols = 6
 piece_scene = ExtResource("2_0y2n6")
-distance = 1.5

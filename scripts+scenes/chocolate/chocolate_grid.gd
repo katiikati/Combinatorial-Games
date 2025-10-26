@@ -1,11 +1,11 @@
-extends GridContainer
+extends Control
 
 var start_game = false
 
 @export var rows := 6
 @export var cols := 8
 @export var piece_scene: PackedScene
-@export var distance :=1.1
+@export var distance := 20
 
 @onready var chomp_logic = get_tree().get_first_node_in_group("chomp_logic")
 @onready var ui = get_tree().get_first_node_in_group("ui")
@@ -24,7 +24,7 @@ var just_added: Vector2
 var can_move = true
 
 func _ready():
-	current_row = rows-1
+	current_row = 0
 	current_col = cols-1
 	prev_row = current_row
 	prev_col = current_col
@@ -37,11 +37,9 @@ func _ready():
 		for c in range(cols):
 			var piece = piece_scene.instantiate()
 			piece.position = Vector2(c * distance -x_offset, r * distance-y_offset)
-			if c == 0 && r == 0:
+			if c == 0 && r == 5:
 				var piece_sprite: TextureRect = piece
-				#var mat: Material = piece_mesh.material
-				piece_sprite.modulate = Color(1, 0, 0) # red
-				#piece_mesh.set_surface_override_material(0, mat)
+				piece_sprite.modulate = Color(1, 0, 0)#red
 			piece.row = r
 			piece.col = c
 			existing_points.append(Vector2(r, c))
@@ -58,12 +56,12 @@ func _unhandled_input(event: InputEvent):
 		
 		if event.is_action_pressed("up"):
 			prev_row = current_row
-			current_row += 1
+			current_row -= 1
 			moved = true
 			
 		if event.is_action_pressed("down"):
 			prev_row = current_row
-			current_row -= 1
+			current_row += 1
 			moved = true
 			
 		if event.is_action_pressed("right"):
@@ -93,6 +91,7 @@ func update_selection():
 	for child in get_children():
 		child.set_selected(false)
 		if child.row == current_row && child.col == current_col:
+			print("current", current_row, current_col)
 			last_selected = child
 			
 	last_selected.set_selected(true)

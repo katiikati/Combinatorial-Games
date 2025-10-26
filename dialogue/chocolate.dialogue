@@ -1,14 +1,17 @@
 ~ start
 Cocoa: [[Hi|Hello|Howdy]], I'm Cocoa. Whats up?
+- Can I have some of that dubai chocolate?
+	Cali: Can I have some of that dubai chocolate?
+	Cocoa: Sure, but only if you play a game with me!
 - Nothing much
 	Cali: Nothing much
 	Cocoa: Alright, see you later. => END
-- Can I have some of that dubai chocolate?
-Cali: Can I have some of that dubai chocolate?
-Cocoa: Sure, but only if you play a game with me!
 => explain
 
 ~ explain
+do play_chocolate_game()
+
+~ long_explain
 Cocoa: We will play on this piece of chocolate here. On each move you can choose a square of chocolate and "chomp" that squares and all squares above or to the right of it. 
 Cocoa: The goal is to not eat the bottom right square. The person who does that loses.
 Cocoa: Are you ready?
