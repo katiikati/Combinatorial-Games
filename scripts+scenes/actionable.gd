@@ -23,6 +23,8 @@ func action() -> void:
 	if not dialogue_started and connected_to_manager: 
 		#player.in_dialogue = true
 		dialogue_started = true
+		if GameManager.played_cocoa == 1:
+			dialogue_start = "play_again"
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start, [self])
 
 func _on_dialogue_ended(resource: DialogueResource) -> void:
@@ -30,6 +32,8 @@ func _on_dialogue_ended(resource: DialogueResource) -> void:
 	GameManager.player.in_dialogue = false
 	
 func play_chocolate_game() -> void:
+	GameManager.played_cocoa = 1
+	dialogue_start = "play_again"
 	SceneManager.show_scene("res://scripts+scenes/main/main.tscn")
 	
 func next_scene():

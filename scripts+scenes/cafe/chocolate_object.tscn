@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://3oq3c0slm3m" path="res://scripts+scenes/actionable.gd" id="2_7rxdu"]
 [ext_resource type="Texture2D" uid="uid://bsybnk2xb46o5" path="res://art/cafe/chocolate.png" id="2_y3nka"]
 [ext_resource type="Resource" uid="uid://c0sxik30rvaox" path="res://dialogue/chocolate.dialogue" id="3_y3nka"]
-[ext_resource type="Texture2D" uid="uid://blkftho2uto0" path="res://art/heart2.png" id="5_whw5g"]
 [ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="6_byvwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40j74"]
@@ -12,6 +11,9 @@ size = Vector2(91, 41)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rxdu"]
 radius = 163.15
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_whw5g"]
+load_path = "res://.godot/imported/heart2.png-670ef74aab275cce0822dc1559e9c086.ctex"
 
 [node name="ChocolateObject" type="StaticBody2D"]
 script = ExtResource("1_whw5g")
@@ -21,6 +23,7 @@ position = Vector2(3.5, 1.5)
 shape = SubResource("RectangleShape2D_40j74")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(9, 0)
 texture = ExtResource("2_y3nka")
 
@@ -35,7 +38,7 @@ shape = SubResource("CircleShape2D_7rxdu")
 modulate = Color(10.109, 1, 1, 1)
 position = Vector2(2, -116)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_whw5g")
+texture = SubResource("CompressedTexture2D_whw5g")
 
 [node name="Label" type="Label" parent="InteractIcon"]
 offset_left = -213.333

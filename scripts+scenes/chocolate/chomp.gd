@@ -6,6 +6,9 @@ var board := [] #array of where chocolate squares are
 var squares_removed:= []
 var losing_pos := Vector2()
 
+func _ready():
+	GameManager.squares_removed = squares_removed
+
 func init_board(r: int, c: int) -> void:
 	print("init board")
 	rows = r
@@ -30,7 +33,6 @@ func valid_moves() -> Array:
 	return moves
 	
 func apply_move(r: int, c: int) -> bool:
-	squares_removed.append(Vector2(r, c))
 	if not in_bounds(r,c) || not board[r][c]:
 		return false
 	
@@ -125,13 +127,17 @@ func choose_best_move_minimax() -> Variant:
 	var mv = moves[randi() % moves.size()]
 	if mv.x ==0 && mv.y ==0:
 		print("loser")
+		for r in range(rows):
+			for c in range(cols):
+				if Vector2(r, c) in squares_removed:
+					continue
+				elif r!= 0 or c!=0:
+					print("changing mv to", r, c)
+					mv.x = r
+					mv.y = c
+	if mv.x == null:
+		mv.x = 0
+		mv.y = 0
 	print("applying", mv.x, mv.y)
 	apply_move(mv.x, mv.y)
 	return mv
-
-func random_ai() -> Variant:
-	print("random ai")
-	var moves := valid_moves()
-	if moves.size() == 0:
-		return null
-	return moves[randi() % moves.size()]

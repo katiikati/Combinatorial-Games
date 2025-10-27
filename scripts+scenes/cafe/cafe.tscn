@@ -88,9 +88,8 @@ offset = Vector2(0, -200)
 [node name="Workers" type="Node2D" parent="."]
 
 [node name="ChocolateObject" parent="Workers" instance=ExtResource("4_6l2x1")]
-visible = false
 z_index = 1
-position = Vector2(115, 798)
+position = Vector2(99, 736)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Workers"]
 position = Vector2(114, 748)

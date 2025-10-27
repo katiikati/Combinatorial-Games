@@ -6,6 +6,10 @@ var player: Node2D
 var coins = 0
 var coins_label: Label
 
+var squares_removed
+
+var played_cocoa = 0
+
 var typing_sounds = [
 	preload("res://art/audio/sfx/typing/keypress-001.wav"),
 	preload("res://art/audio/sfx/typing/keypress-002.wav"),

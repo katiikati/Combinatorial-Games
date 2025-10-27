@@ -112,6 +112,7 @@ func get_next_select():
 	current_col = last_selected.col
 			
 func eat_chunk():
+	print("eat chunk")
 	if ui.player_num == 1:
 		chomp_logic.apply_move(current_row, current_col)
 	if current_row == 0 && current_col == 0:
@@ -123,6 +124,7 @@ func eat_chunk():
 	for child in get_children():
 		if child.row >= current_row && child.col >= current_col:
 			var bad_point = Vector2(child.row, child.col)
+			GameManager.squares_removed.append(bad_point)
 			deleted_points.append(bad_point)
 			existing_points.erase(bad_point)
 			child.queue_free()
@@ -149,6 +151,7 @@ func eat_given_chunk(chunk: Vector2):
 	for child in get_children():
 		if child.row >= chunk.x && child.col >= chunk.y:
 			var bad_point = Vector2(child.row, child.col)
+			GameManager.squares_removed.append(bad_point)
 			deleted_points.append(bad_point)
 			existing_points.erase(bad_point)
 			child.queue_free()

@@ -46,6 +46,11 @@ func _process(delta: float) -> void:
 				
 		if Input.is_action_just_pressed("ui_accept"):
 			accept_player_num()
+			
+	elif lost_panel.visible:
+		if Input.is_action_just_pressed("ui_accept"):
+			GameManager.random_type_sound()
+			SceneManager.show_scene("res://scripts+scenes/cafe/cafe.tscn")
 	
 func accept_player_num():
 	player_num = current_player_select

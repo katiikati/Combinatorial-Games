@@ -9,10 +9,6 @@ Cocoa: [[Hi|Hello|Howdy]], I'm Cocoa. Whats up?
 => explain
 
 ~ explain
-do play_chocolate_game()
-=> END 
-
-~ long_explain
 Cocoa: We will play on this piece of chocolate here. On each move you can choose a square of chocolate and "chomp" that squares and all squares below or to the right of it. 
 Cocoa: The goal is to not eat the top right square. The person who does that loses.
 Cocoa: Are you ready?
@@ -22,5 +18,21 @@ Cocoa: Are you ready?
 	Cali: No
 	Cocoa: Ok I'll say it again => explain
 Cocoa: Great! Let's get started.
+do play_chocolate_game()
+=> END
+
+~ play_again
+Cocoa: Wanna play again?
+- Yes!
+	Cali: Yes!
+- No
+	Cali: No
+	=> END!
+Cocoa: Do you remember how to play?
+- Yes!
+	Cali: Yes!
+- No
+	Cali: No
+	Cocoa: Ok I'll say it again => explain
 do play_chocolate_game()
 => END

@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dlqo486vjgxmj" path="res://art/other_ppl/squirrel_portrati.png" id="3_odc0r"]
 [ext_resource type="Texture2D" uid="uid://bad24af3f245l" path="res://art/other_ppl/employer_cat.png" id="4_1kn55"]
 [ext_resource type="StyleBox" uid="uid://icut6ayt2ol0" path="res://themes/dark_pink_round.tres" id="6_kmygl"]
-[ext_resource type="Texture2D" uid="uid://b7lpaeg5cik7j" path="res://art/brownlabubu.webp" id="7_v42gu"]
 [ext_resource type="Texture2D" uid="uid://bxudghsl6k2bo" path="res://art/calico/f0.png" id="8_wqs7j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -69,6 +68,9 @@ MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wqs7j"]
+load_path = "res://.godot/imported/brownlabubu.webp-3081e1218afc25ea582deeb3cdc187c6.ctex"
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
@@ -188,7 +190,7 @@ offset_left = 843.0
 offset_top = 182.0
 offset_right = 1124.0
 offset_bottom = 513.0
-texture = ExtResource("7_v42gu")
+texture = SubResource("CompressedTexture2D_wqs7j")
 expand_mode = 1
 
 [node name="Yapper1" type="TextureRect" parent="."]
