@@ -3,11 +3,15 @@ extends Node2D
 var player: Node2D
 
 @onready var audio_player = $AudioStreamPlayer
+
+#scenes
+@export var scene_paths: Array[String]
+
 var coins = 0
 var coins_label: Label
 
+#chocolate
 var squares_removed
-
 var played_cocoa = 0
 
 var typing_sounds = [
@@ -24,3 +28,7 @@ func random_type_sound():
 
 func coins_inc():
 	coins += 1
+	
+func change_scene(num: int):
+	var target_scene = scene_paths[num-1]
+	get_tree().change_scene_to_file(target_scene)

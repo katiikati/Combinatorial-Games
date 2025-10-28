@@ -5,6 +5,7 @@
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_70yv6")
+scene_paths = Array[String](["res://scripts+scenes/cafe/cafe.tscn"])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_smx3j")

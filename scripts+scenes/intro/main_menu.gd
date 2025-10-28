@@ -13,3 +13,7 @@ func _process(delta):
 		var layer = layers[i]
 		if layer:
 			layer.position = offset * (layer_strengths[i] + 1)
+
+func _on_play_pressed() -> void:
+	print("cs")
+	GameManager.change_scene(1)
