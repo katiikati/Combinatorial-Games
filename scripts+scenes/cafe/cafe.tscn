@@ -109,10 +109,36 @@ z_index = -100
 scale = Vector2(1, 1.2)
 texture = ExtResource("8_28ndm")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_okonf")
+autoplay = true
+bus = &"BGM"
+
+[node name="UI" parent="." instance=ExtResource("15_86ldm")]
+visible = false
+z_index = 20
+
+[node name="More_UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BG" type="CanvasLayer" parent="More_UI"]
 layer = -100
 
-[node name="Coins" type="Label" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="More_UI/BG"]
+z_index = -100
+offset_left = -4440.0
+offset_top = -4126.0
+offset_right = 2147.0
+offset_bottom = 4168.0
+color = Color(0.637418, 0.495465, 0.300023, 1)
+
+[node name="Top" type="CanvasLayer" parent="More_UI"]
+layer = 10
+
+[node name="Coins" type="Label" parent="More_UI/Top"]
 z_index = 3
 offset_left = 59.0
 offset_top = 45.0
@@ -122,20 +148,3 @@ theme_override_fonts/font = ExtResource("16_h30sn")
 theme_override_font_sizes/font_size = 30
 text = "Coins: 0"
 script = ExtResource("17_ywwfb")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-z_index = -100
-offset_left = -4440.0
-offset_top = -4126.0
-offset_right = 2147.0
-offset_bottom = 4168.0
-color = Color(0.637418, 0.495465, 0.300023, 1)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_okonf")
-autoplay = true
-bus = &"BGM"
-
-[node name="UI" parent="." instance=ExtResource("15_86ldm")]
-visible = false
-z_index = 20

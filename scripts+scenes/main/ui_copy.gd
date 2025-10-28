@@ -103,6 +103,7 @@ func end_game(you_won: bool):
 	if player_num == 1:
 		if you_won:
 			GameManager.coins_inc()
+			GameManager.sfx_play(2)
 			lost_panel_text.text = "You won!!!"
 		else:
 			lost_panel_text.text = "You lost </3"

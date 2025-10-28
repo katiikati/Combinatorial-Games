@@ -70,7 +70,6 @@ MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wqs7j"]
-load_path = "res://.godot/imported/brownlabubu.webp-3081e1218afc25ea582deeb3cdc187c6.ctex"
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100

@@ -16,4 +16,9 @@ func _process(delta):
 
 func _on_play_pressed() -> void:
 	print("cs")
+	GameManager.audio_player.play()
 	GameManager.change_scene(1)
+
+
+func _on_play_mouse_entered() -> void:
+	pass # Replace with function body.

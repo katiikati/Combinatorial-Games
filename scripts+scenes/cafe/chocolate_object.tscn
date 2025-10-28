@@ -13,7 +13,6 @@ size = Vector2(91, 41)
 radius = 163.15
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_whw5g"]
-load_path = "res://.godot/imported/heart2.png-670ef74aab275cce0822dc1559e9c086.ctex"
 
 [node name="ChocolateObject" type="StaticBody2D"]
 script = ExtResource("1_whw5g")
