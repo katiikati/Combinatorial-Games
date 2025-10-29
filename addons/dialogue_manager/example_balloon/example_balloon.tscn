@@ -1,14 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=20 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_36de5"]
-[ext_resource type="StyleBox" uid="uid://bfq0dcfir08q5" path="res://themes/white_round.tres" id="2_1337t"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="3_kmygl"]
 [ext_resource type="Texture2D" uid="uid://dlqo486vjgxmj" path="res://art/other_ppl/squirrel_portrati.png" id="3_odc0r"]
 [ext_resource type="Texture2D" uid="uid://bad24af3f245l" path="res://art/other_ppl/employer_cat.png" id="4_1kn55"]
-[ext_resource type="StyleBox" uid="uid://icut6ayt2ol0" path="res://themes/dark_pink_round.tres" id="6_kmygl"]
+[ext_resource type="FontFile" uid="uid://d1xr5hf8c47ot" path="res://fonts/friendlyscribbles.ttf" id="5_wqs7j"]
+[ext_resource type="FontFile" uid="uid://dy70bykiwty6" path="res://fonts/Cat Song.ttf" id="7_odc0r"]
 [ext_resource type="Texture2D" uid="uid://bxudghsl6k2bo" path="res://art/calico/f0.png" id="8_wqs7j"]
+[ext_resource type="StyleBox" uid="uid://bd27ouc21yjd6" path="res://themes/dark_response.tres" id="9_1kn55"]
+[ext_resource type="StyleBox" uid="uid://1audc53wq5md" path="res://themes/response_style.tres" id="10_icj72"]
+[ext_resource type="Texture2D" uid="uid://dc0h0onavfqga" path="res://art/ui/dialogue_box.png" id="11_icj72"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -35,7 +37,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0njw"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -45,6 +47,18 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odc0r"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmqt"]
 bg_color = Color(0, 0, 0, 1)
@@ -59,15 +73,36 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
 default_font_size = 20
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/fonts/font = ExtResource("5_wqs7j")
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
 Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
 Button/styles/normal = SubResource("StyleBoxFlat_e0njw")
+Button/styles/pressed = SubResource("StyleBoxFlat_odc0r")
 MarginContainer/constants/margin_bottom = 15
 MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbrl0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wqs7j"]
 
@@ -90,12 +125,46 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 144.0
+offset_top = 417.0
+offset_right = 331.0
+offset_bottom = 455.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.933333, 0.796078, 0.682353, 1)
+theme_override_fonts/normal_font = ExtResource("7_odc0r")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "Character"
+fit_content = true
+scroll_active = false
+
+[node name="DialogueLabel" parent="Balloon" instance=ExtResource("2_a8ve6")]
+unique_name_in_owner = true
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 103.0
+offset_top = 472.0
+offset_right = 1051.0
+offset_bottom = 563.0
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.552941, 0.298039, 0.231373, 1)
+theme_override_colors/font_selected_color = Color(0.552941, 0.298039, 0.231373, 1)
+theme_override_fonts/normal_font = ExtResource("7_odc0r")
+theme_override_font_sizes/normal_font_size = 30
+text = "Hello there I am testing how the dialogue loooks in different fonts!!!! <3 ~"
+skip_action = &"ui_cancel"
+
 [node name="MarginContainer" type="MarginContainer" parent="Balloon"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 64.0
 offset_top = -219.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -104,65 +173,39 @@ grow_vertical = 0
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("2_1337t")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wbrl0")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.501961)
-layout_mode = 2
-mouse_filter = 1
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_kmygl")
-theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-text = "Character"
-fit_content = true
-scroll_active = false
-
-[node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_a8ve6")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_kmygl")
-theme_override_font_sizes/normal_font_size = 30
-text = "Dialogue..."
-skip_action = &"ui_cancel"
-
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.266
 anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -290.5
-offset_top = -35.0
-offset_right = 290.5
-offset_bottom = 35.0
+anchor_right = 0.784
+anchor_bottom = 0.566
+offset_left = -51.432
+offset_top = -123.0
+offset_right = -6.16803
+offset_bottom = -64.768
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
-theme_override_constants/separation = 2
+theme_override_constants/separation = -20
 alignment = 1
 script = ExtResource("3_72ixx")
 response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu"]
+custom_minimum_size = Vector2(650, 120)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.921319, 0.795261, 0.778573, 1)
+theme_override_colors/font_hover_color = Color(0.921319, 0.795261, 0.778573, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
@@ -170,17 +213,15 @@ theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_kmygl")
+theme_override_colors/font_color = Color(0.664985, 0.408549, 0.380079, 1)
+theme_override_colors/font_focus_color = Color(0.921319, 0.795261, 0.778573, 1)
+theme_override_colors/font_pressed_color = Color(0.921319, 0.795261, 0.778573, 1)
+theme_override_fonts/font = ExtResource("7_odc0r")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("6_kmygl")
-theme_override_styles/hover_pressed_mirrored = ExtResource("6_kmygl")
-theme_override_styles/hover_pressed = ExtResource("6_kmygl")
-theme_override_styles/hover = ExtResource("6_kmygl")
-theme_override_styles/pressed = ExtResource("6_kmygl")
-theme_override_styles/normal = ExtResource("2_1337t")
+theme_override_styles/focus = ExtResource("9_1kn55")
+theme_override_styles/hover = ExtResource("9_1kn55")
+theme_override_styles/pressed = ExtResource("9_1kn55")
+theme_override_styles/normal = ExtResource("10_icj72")
 text = "Response example"
 
 [node name="Yapper2" type="TextureRect" parent="."]
@@ -199,6 +240,15 @@ offset_top = 243.0
 offset_right = 246.0
 offset_bottom = 496.0
 texture = ExtResource("8_wqs7j")
+
+[node name="DialogueBox" type="TextureRect" parent="."]
+z_index = -1
+offset_left = 1.0
+offset_top = 388.0
+offset_right = 1150.0
+offset_bottom = 631.0
+texture = ExtResource("11_icj72")
+expand_mode = 1
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
