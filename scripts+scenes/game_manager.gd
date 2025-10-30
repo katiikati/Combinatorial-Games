@@ -2,6 +2,7 @@ extends Node2D
 
 var player: Node2D
 
+@onready var screen_width = get_viewport().size.x
 @onready var audio_player = $Audio
 
 #scenes
@@ -24,6 +25,13 @@ var sfx = [
 	preload("res://art/audio/sfx/click3.wav"), #click
 	preload("res://art/audio/sfx/win sound 1.wav") #win
 ]
+
+func _ready():
+	var image = load("res://art/ui/cursor.png").get_image()
+	image.resize(screen_width / 30, screen_width / 30) 
+	var texture = ImageTexture.create_from_image(image)
+	Input.set_custom_mouse_cursor(texture)
+	print("image")
 
 func random_type_sound():
 	var random_sound = typing_sounds[randi() % typing_sounds.size()]

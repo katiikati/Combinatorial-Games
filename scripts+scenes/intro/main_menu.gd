@@ -4,6 +4,8 @@ extends Node2D
 @onready var layers: Array[Node] = $Parallax2D.get_children()
 @export var layer_strengths: Array[int] = [3, 1, 5]
 
+@onready var play_sprite: TextureRect = $Parallax2D/ParallaxLayer3/Control/Play/PlaySprite
+
 func _process(delta):
 	var mouse_pos = get_viewport().get_mouse_position()
 	var screen_center = get_viewport_rect().size / 2
@@ -21,4 +23,7 @@ func _on_play_pressed() -> void:
 
 
 func _on_play_mouse_entered() -> void:
-	pass # Replace with function body.
+	play_sprite.scale = Vector2(0.6, 0.6)
+	
+func _on_play_mouse_exited() -> void:
+	play_sprite.scale = Vector2(0.5,0.5)

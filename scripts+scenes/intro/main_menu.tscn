@@ -50,11 +50,11 @@ theme_override_styles/normal = ExtResource("2_m5bi1")
 
 [node name="PlaySprite" type="TextureRect" parent="Parallax2D/ParallaxLayer3/Control/Play"]
 layout_mode = 0
-offset_left = 92.0
-offset_top = -102.0
-offset_right = 2252.0
-offset_bottom = 1518.0
-scale = Vector2(0.49537, 0.494444)
+offset_left = 151.0
+offset_top = 194.0
+offset_right = 635.0
+offset_bottom = 461.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_tgwak")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D"]
@@ -78,4 +78,5 @@ autoplay = true
 bus = &"SFX"
 
 [connection signal="mouse_entered" from="Parallax2D/ParallaxLayer3/Control/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="Parallax2D/ParallaxLayer3/Control/Play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="Parallax2D/ParallaxLayer3/Control/Play" to="." method="_on_play_pressed"]
