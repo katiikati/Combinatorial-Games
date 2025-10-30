@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://de25bq4f53fcq"]
+[gd_scene load_steps=7 format=3 uid="uid://de25bq4f53fcq"]
 
 [ext_resource type="Script" uid="uid://dumxgr6dg6fus" path="res://scripts+scenes/intro/intro_scene.gd" id="1_v8chr"]
 [ext_resource type="Resource" uid="uid://bd2igtf2trl43" path="res://intro.dialogue" id="2_gq44x"]
 [ext_resource type="Texture2D" uid="uid://bhdfvd66wtyd6" path="res://art/cafe/intro/cafe_bg.png" id="3_kisjh"]
-[ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="3_x2uoc"]
+[ext_resource type="FontFile" uid="uid://dy70bykiwty6" path="res://fonts/Cat Song.ttf" id="4_kisjh"]
+[ext_resource type="Script" uid="uid://cmsyq1xffanw1" path="res://scripts+scenes/intro/press_space.gd" id="5_pa5v2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa5v2"]
 bg_color = Color(0.0832, 0.16, 0.10624, 0.458824)
@@ -32,7 +33,7 @@ texture = ExtResource("3_kisjh")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="TextEdit" type="Label" parent="."]
+[node name="PressSpace" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,12 +41,13 @@ anchor_bottom = 1.0
 offset_left = 336.0
 offset_top = 74.0
 offset_right = -307.0
-offset_bottom = -441.0
+offset_bottom = -501.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_x2uoc")
+theme_override_fonts/font = ExtResource("4_kisjh")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_pa5v2")
 text = "Press space "
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("5_pa5v2")

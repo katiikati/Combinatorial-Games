@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://q53txsdrk265"]
+[gd_scene load_steps=21 format=3 uid="uid://q53txsdrk265"]
 
 [ext_resource type="Script" uid="uid://b64agk2mgkpl3" path="res://scripts+scenes/main/main.gd" id="1_23a56"]
 [ext_resource type="PackedScene" uid="uid://cmeapwopmcf2j" path="res://scripts+scenes/cafe/furniture.tscn" id="1_tgabw"]
@@ -15,8 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://b1ma3j7o54vdi" path="res://art/cafe/wall_top.png" id="11_ohf3f"]
 [ext_resource type="Texture2D" uid="uid://civ7827mqg2xa" path="res://art/other_ppl/squirrel.png" id="12_h30sn"]
 [ext_resource type="PackedScene" uid="uid://d18telqa4jhut" path="res://scripts+scenes/ui.tscn" id="15_86ldm"]
-[ext_resource type="FontFile" uid="uid://ck0olsnea2etc" path="res://fonts/AdabelleHandwriting-Regular.ttf" id="16_h30sn"]
+[ext_resource type="FontFile" uid="uid://dy70bykiwty6" path="res://fonts/Cat Song.ttf" id="16_png3m"]
 [ext_resource type="Script" uid="uid://bgl1xvapaxc5i" path="res://scripts+scenes/cafe/coins.gd" id="17_ywwfb"]
+[ext_resource type="Texture2D" uid="uid://bbpltfsj2dvjk" path="res://art/ui/small_bubble.png" id="18_f8nqu"]
+[ext_resource type="Texture2D" uid="uid://c4ff4agerigkr" path="res://art/ui/starr.png" id="19_4c6g3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohf3f"]
 size = Vector2(112, 222)
@@ -140,11 +142,29 @@ layer = 10
 
 [node name="Coins" type="Label" parent="More_UI/Top"]
 z_index = 3
-offset_left = 59.0
-offset_top = 45.0
-offset_right = 292.0
-offset_bottom = 148.0
-theme_override_fonts/font = ExtResource("16_h30sn")
+offset_left = 137.0
+offset_top = 58.0
+offset_right = 370.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0.552941, 0.298039, 0.231373, 1)
+theme_override_fonts/font = ExtResource("16_png3m")
 theme_override_font_sizes/font_size = 30
-text = "Coins: 0"
+text = "0"
 script = ExtResource("17_ywwfb")
+
+[node name="SmallBubble" type="TextureRect" parent="More_UI/Top"]
+offset_left = 34.0
+offset_top = 30.0
+offset_right = 247.0
+offset_bottom = 120.0
+texture = ExtResource("18_f8nqu")
+expand_mode = 1
+
+[node name="Star" type="TextureRect" parent="More_UI/Top"]
+offset_left = 21.0
+offset_top = 16.0
+offset_right = 158.0
+offset_bottom = 132.0
+texture = ExtResource("19_4c6g3")
+expand_mode = 1
+stretch_mode = 4
