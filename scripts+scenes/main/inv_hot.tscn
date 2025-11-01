@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://inrid6gwswfg"]
+
+[ext_resource type="PackedScene" uid="uid://7futnaoj4ep2" path="res://scripts+scenes/main/slot.tscn" id="1_go45n"]
+[ext_resource type="Script" uid="uid://ibdfc58cuhmj" path="res://scripts+scenes/main/inv_hot.gd" id="1_q47kn"]
+[ext_resource type="Script" uid="uid://da7ef7p45qmei" path="res://scripts+scenes/main/hotbar.gd" id="2_kc1o3"]
+[ext_resource type="Texture2D" uid="uid://b35di1qba3ahn" path="res://art/ui/hotbar_box.png" id="3_kc1o3"]
+[ext_resource type="Texture2D" uid="uid://iwlu5ynpmmre" path="res://art/games/choco_sq.png" id="4_11fj5"]
+[ext_resource type="Texture2D" uid="uid://bsybnk2xb46o5" path="res://art/cafe/chocolate.png" id="4_ykgdn"]
+[ext_resource type="Script" uid="uid://cjkmn4wxpecty" path="res://resources/item.gd" id="5_11fj5"]
+
+[sub_resource type="Resource" id="Resource_medqb"]
+script = ExtResource("5_11fj5")
+title = "Chcolate"
+icon = ExtResource("4_ykgdn")
+amount = 1
+metadata/_custom_type_script = "uid://cjkmn4wxpecty"
+
+[node name="InvHot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q47kn")
+
+[node name="Hotbar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_kc1o3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Hotbar"]
+z_index = 2
+layout_mode = 0
+offset_left = 36.0
+offset_top = 498.0
+offset_right = 1084.0
+offset_bottom = 620.0
+theme_override_constants/separation = 20
+
+[node name="Slot" parent="Hotbar/HBoxContainer" instance=ExtResource("1_go45n")]
+layout_mode = 2
+icon_texture = ExtResource("4_11fj5")
+item = SubResource("Resource_medqb")
+
+[node name="Slot2" parent="Hotbar/HBoxContainer" instance=ExtResource("1_go45n")]
+layout_mode = 2
+
+[node name="Slot3" parent="Hotbar/HBoxContainer" instance=ExtResource("1_go45n")]
+layout_mode = 2
+icon_texture = ExtResource("4_ykgdn")
+item = SubResource("Resource_medqb")
+
+[node name="Slot4" parent="Hotbar/HBoxContainer" instance=ExtResource("1_go45n")]
+layout_mode = 2
+
+[node name="Slot5" parent="Hotbar/HBoxContainer" instance=ExtResource("1_go45n")]
+layout_mode = 2
+
+[node name="Slot6" parent="Hotbar/HBoxContainer" instance=ExtResource("1_go45n")]
+layout_mode = 2
+
+[node name="Slot7" parent="Hotbar/HBoxContainer" instance=ExtResource("1_go45n")]
+layout_mode = 2
+
+[node name="Slot8" parent="Hotbar/HBoxContainer" instance=ExtResource("1_go45n")]
+layout_mode = 2
+
+[node name="Slot9" parent="Hotbar/HBoxContainer" instance=ExtResource("1_go45n")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 471.0
+offset_right = 1134.0
+offset_bottom = 632.0
+texture = ExtResource("3_kc1o3")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="Hotbar/HBoxContainer" to="." method="_on_h_box_container_mouse_entered"]

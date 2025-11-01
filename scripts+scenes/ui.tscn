@@ -1,34 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://d18telqa4jhut"]
+[gd_scene load_steps=7 format=3 uid="uid://d18telqa4jhut"]
 
-[ext_resource type="StyleBox" uid="uid://bfq0dcfir08q5" path="res://themes/white_round.tres" id="1_6ksc4"]
+[ext_resource type="PackedScene" uid="uid://inrid6gwswfg" path="res://scripts+scenes/main/inv_hot.tscn" id="1_6ksc4"]
+[ext_resource type="FontFile" uid="uid://dy70bykiwty6" path="res://fonts/Cat Song.ttf" id="1_jpqs8"]
+[ext_resource type="PackedScene" uid="uid://7futnaoj4ep2" path="res://scripts+scenes/main/slot.tscn" id="1_thxkk"]
+[ext_resource type="Script" uid="uid://bgl1xvapaxc5i" path="res://scripts+scenes/cafe/coins.gd" id="2_thxkk"]
+[ext_resource type="Texture2D" uid="uid://bbpltfsj2dvjk" path="res://art/ui/small_bubble.png" id="3_ainrj"]
+[ext_resource type="Texture2D" uid="uid://c4ff4agerigkr" path="res://art/ui/starr.png" id="4_nb4vf"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 
-[node name="HotBar" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="BG" type="CanvasLayer" parent="."]
+layer = -100
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 119.0
-offset_top = 503.0
-offset_right = -156.0
-offset_bottom = -53.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = ExtResource("1_6ksc4")
+[node name="ColorRect" type="ColorRect" parent="BG"]
+z_index = -100
+offset_left = -4440.0
+offset_top = -4126.0
+offset_right = 2147.0
+offset_bottom = 4168.0
+color = Color(0.637418, 0.495465, 0.300023, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Top" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Slot" parent="Top" instance=ExtResource("1_thxkk")]
+
+[node name="Coins" type="Label" parent="Top"]
+z_index = 3
+offset_left = 137.0
+offset_top = 58.0
+offset_right = 370.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0.552941, 0.298039, 0.231373, 1)
+theme_override_fonts/font = ExtResource("1_jpqs8")
+theme_override_font_sizes/font_size = 30
+text = "0"
+script = ExtResource("2_thxkk")
+metadata/_edit_use_anchors_ = true
+
+[node name="SmallBubble" type="TextureRect" parent="Top"]
+offset_left = 34.0
+offset_top = 30.0
+offset_right = 247.0
+offset_bottom = 120.0
+texture = ExtResource("3_ainrj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Star" type="TextureRect" parent="Top"]
+offset_left = 21.0
+offset_top = 16.0
+offset_right = 158.0
+offset_bottom = 132.0
+texture = ExtResource("4_nb4vf")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="InvHot" parent="Top" instance=ExtResource("1_6ksc4")]
+z_index = 5
+
+[connection signal="mouse_entered" from="Top/InvHot" to="Top/Coins" method="_on_inv_hot_mouse_entered"]

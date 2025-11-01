@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=19 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Texture2D" uid="uid://bpceh1kgw4mdl" path="res://art/other_ppl/portraits/cali.png" id="2_icj72"]
+[ext_resource type="Texture2D" uid="uid://h5xfb8627677" path="res://art/other_ppl/choc.png" id="3_1kn55"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://dlqo486vjgxmj" path="res://art/other_ppl/squirrel_portrati.png" id="3_odc0r"]
-[ext_resource type="Texture2D" uid="uid://bad24af3f245l" path="res://art/other_ppl/employer_cat.png" id="4_1kn55"]
+[ext_resource type="Texture2D" uid="uid://3n0s0s6wevmh" path="res://art/other_ppl/portraits/mittens.png" id="4_1kn55"]
 [ext_resource type="FontFile" uid="uid://d1xr5hf8c47ot" path="res://fonts/friendlyscribbles.ttf" id="5_wqs7j"]
 [ext_resource type="FontFile" uid="uid://dy70bykiwty6" path="res://fonts/Cat Song.ttf" id="7_odc0r"]
 [ext_resource type="StyleBox" uid="uid://bd27ouc21yjd6" path="res://themes/dark_response.tres" id="9_1kn55"]
@@ -104,14 +104,12 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbrl0"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wqs7j"]
-
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_36de5")
 character_pics = {
 "Cali": ExtResource("2_icj72"),
-"Cocoa": ExtResource("3_odc0r"),
+"Cocoa": ExtResource("3_1kn55"),
 "Mittens": ExtResource("4_1kn55")
 }
 
@@ -226,12 +224,12 @@ text = "Response example"
 
 [node name="Yapper2" type="TextureRect" parent="."]
 z_index = -1
-offset_left = 843.0
-offset_top = 182.0
-offset_right = 1124.0
-offset_bottom = 513.0
-texture = SubResource("CompressedTexture2D_wqs7j")
+offset_left = 760.0
+offset_top = 199.0
+offset_right = 1093.0
+offset_bottom = 530.0
 expand_mode = 1
+stretch_mode = 4
 
 [node name="Yapper1" type="TextureRect" parent="."]
 z_index = -1

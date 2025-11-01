@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://7futnaoj4ep2"]
+
+[ext_resource type="Script" uid="uid://tdvehw27b530" path="res://scripts+scenes/main/slot.gd" id="1_e64tl"]
+[ext_resource type="Texture2D" uid="uid://cvrn66hiwyss8" path="res://art/ui/slot_square.png" id="1_ggpgk"]
+[ext_resource type="Texture2D" uid="uid://c4ff4agerigkr" path="res://art/ui/starr.png" id="3_8wf2g"]
+[ext_resource type="FontFile" uid="uid://dy70bykiwty6" path="res://fonts/Cat Song.ttf" id="4_es7va"]
+
+[node name="Slot" type="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchor_left = 0.457
+anchor_top = 0.423
+anchor_right = 0.543
+anchor_bottom = 0.577
+offset_left = -0.463989
+offset_top = -0.104004
+offset_right = 0.463928
+offset_bottom = 0.103973
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e64tl")
+
+[node name="BG" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ggpgk")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Highlight" type="TextureRect" parent="."]
+modulate = Color(19.125, 1.22, 1, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_right = 1.017
+anchor_bottom = 0.927
+offset_left = -4.0
+offset_right = -1.7
+offset_bottom = 7.3
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ggpgk")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Icon" type="TextureRect" parent="."]
+z_index = 4
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13
+anchor_top = 0.129
+anchor_right = 0.9
+anchor_bottom = 0.747
+offset_top = -2.9
+offset_bottom = 23.3
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8wf2g")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Amount" type="Label" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -38.0
+offset_right = -10.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_es7va")
+theme_override_font_sizes/font_size = 16
+text = "132"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="mouse_entered" from="Icon" to="." method="_on_icon_mouse_entered"]
