@@ -40,6 +40,7 @@ offset_left = 36.0
 offset_top = 498.0
 offset_right = 1084.0
 offset_bottom = 620.0
+mouse_filter = 0
 theme_override_constants/separation = 20
 
 [node name="Slot" parent="Hotbar/HBoxContainer" instance=ExtResource("1_go45n")]
@@ -74,6 +75,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Hotbar"]
+z_index = -1
 layout_mode = 0
 offset_left = 1.0
 offset_top = 471.0

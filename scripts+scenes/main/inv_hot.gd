@@ -29,7 +29,6 @@ func clear():
 		if slot.item != null && slot.item.title != "default":
 			slot.item = null
 	hotbar.index = 0
-			
 
 
 func _on_h_box_container_mouse_entered() -> void:

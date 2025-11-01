@@ -53,7 +53,7 @@ func _drop_data(at_position, data):
 	icon.texture = data
 
 func _on_icon_mouse_entered() -> void:
-	print("connected mouse")
+	print("connected mouse to slot")
 	
 func _gui_input(event):
 	if event is InputEventMouseButton:

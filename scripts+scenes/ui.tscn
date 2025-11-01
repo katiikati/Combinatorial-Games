@@ -9,7 +9,11 @@
 
 [node name="UI" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BG" type="CanvasLayer" parent="."]
 layer = -100
@@ -26,10 +30,11 @@ metadata/_edit_use_anchors_ = true
 [node name="Top" type="CanvasLayer" parent="."]
 layer = 10
 
-[node name="Slot" parent="Top" instance=ExtResource("1_thxkk")]
-
 [node name="Coins" type="Label" parent="Top"]
 z_index = 3
+anchors_preset = -1
+anchor_top = -0.109568
+anchor_bottom = -0.109568
 offset_left = 137.0
 offset_top = 58.0
 offset_right = 370.0
@@ -62,5 +67,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InvHot" parent="Top" instance=ExtResource("1_6ksc4")]
 z_index = 5
+
+[node name="Slot" parent="Top" instance=ExtResource("1_thxkk")]
+z_index = 100
 
 [connection signal="mouse_entered" from="Top/InvHot" to="Top/Coins" method="_on_inv_hot_mouse_entered"]
